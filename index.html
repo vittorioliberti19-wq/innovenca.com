@@ -210,6 +210,69 @@
           transform: translateX(-50%);
         }
       }
+      .marquee-logo {
+        height: 44px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+        opacity: 0.8;
+        flex-shrink: 0;
+        transition: opacity 0.3s ease;
+      }
+      .marquee-logo:hover {
+        opacity: 1;
+      }
+
+      /* Client grid cells */
+      .client-cell {
+        background: #000;
+        padding: 1.5rem 1.25rem;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: background 0.25s ease;
+      }
+      .client-cell:hover {
+        background: #101010;
+      }
+      @media (min-width: 768px) {
+        .client-cell {
+          padding: 2rem 1.75rem;
+          min-height: 180px;
+        }
+      }
+      .client-tag {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #d4202a;
+        font-weight: 700;
+      }
+      .client-logo-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80px;
+      }
+      .client-logo {
+        max-height: 64px;
+        max-width: 80%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        opacity: 0.9;
+        transition: opacity 0.3s ease;
+      }
+      .client-cell:hover .client-logo {
+        opacity: 1;
+      }
+      @media (min-width: 768px) {
+        .client-logo {
+          max-height: 80px;
+        }
+      }
 
       /* Section divider */
       .section-tag {
@@ -582,85 +645,126 @@
             Confían en nosotros
           </div>
           <div class="marquee flex-1">
-            <div class="marquee-track">
+            <div class="marquee-track items-center">
               <!-- repeat 2x for seamless loop -->
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Cementos Catatumbo</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >UNICEF</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >ACNUR</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Save the Children</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >North American Energy</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Global Group Shipping</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >EHK+</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >MM Service</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Inmarvenco</span
-              >
+              <img
+                src="media/clients/cementos-catatumbo.png"
+                alt="Cementos Catatumbo"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/unicef.png"
+                alt="UNICEF"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/acnur.png"
+                alt="ACNUR"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/save-the-children.png"
+                alt="Save the Children"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/north-american-energy.png"
+                alt="North American Energy"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/global-group-shipping.png"
+                alt="Global Group Shipping"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/ehk-plus.png"
+                alt="EHK+"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/mm-service.png"
+                alt="MM Service"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/inmarvenco.png"
+                alt="Inmarvenco"
+                class="marquee-logo"
+                loading="lazy"
+              />
               <!-- duplicate -->
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Cementos Catatumbo</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >UNICEF</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >ACNUR</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Save the Children</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >North American Energy</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Global Group Shipping</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >EHK+</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >MM Service</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >Inmarvenco</span
-              >
-              <span
-                class="font-display text-xl md:text-2xl font-semibold text-white/70"
-                >EHK+</span
-              >
+              <img
+                src="media/clients/cementos-catatumbo.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/unicef.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/acnur.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/save-the-children.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/north-american-energy.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/global-group-shipping.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/ehk-plus.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/mm-service.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
+              <img
+                src="media/clients/inmarvenco.png"
+                alt=""
+                aria-hidden="true"
+                class="marquee-logo"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -1280,7 +1384,9 @@
         >
           <div class="section-tag mb-6">Política de Calidad</div>
           <h3 class="font-display display-md mb-6 text-white">
-            Sistema de Gestión orientado a estándares internacionales.
+            Sistema de Gestión
+            <span class="text-brand">en proceso de certificación</span> bajo
+            estándares internacionales.
           </h3>
           <div class="space-y-5 text-zinc-400 leading-relaxed font-light">
             <p>
@@ -1306,7 +1412,7 @@
             <div class="w-2 h-2 bg-brand rounded-full"></div>
             <span
               class="text-xs uppercase tracking-widest text-zinc-300 font-semibold"
-              >SGC en implementación</span
+              >SGC en proceso de certificación</span
             >
           </div>
         </div>
@@ -1388,213 +1494,195 @@
         <div
           class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-white/5 border border-white/10"
         >
-          <!-- Sector Industrial / Energía -->
-          <!-- Industria -->
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Industrial
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Cementos Catatumbo
+          <!-- Industrial / Energía -->
+          <div class="client-cell">
+            <div class="client-tag">Industrial</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/cementos-catatumbo.png"
+                alt="Cementos Catatumbo"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Energía
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              North American Energy
-            </div>
-          </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Industrial
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              MC Industrias
+          <div class="client-cell">
+            <div class="client-tag">Energía</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/north-american-energy.png"
+                alt="North American Energy"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Naviero
+          <div class="client-cell">
+            <div class="client-tag">Industrial</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/mc-industrias.png"
+                alt="MC Industrias"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Global Group Shipping
+          </div>
+          <div class="client-cell">
+            <div class="client-tag">Naviero</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/global-group-shipping.png"
+                alt="Global Group Shipping"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
           <!-- ONG / Internacional -->
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Organismo Internacional
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              UNICEF
-            </div>
-          </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Organismo Internacional
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              ACNUR
+          <div class="client-cell">
+            <div class="client-tag">Organismo Internacional</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/unicef.png"
+                alt="UNICEF"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              ONG Internacional
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Save the Children
-            </div>
-          </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Asociación Civil
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Construyendo Futuro
+          <div class="client-cell">
+            <div class="client-tag">Organismo Internacional</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/acnur.png"
+                alt="ACNUR"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Fundación
+          <div class="client-cell">
+            <div class="client-tag">ONG Internacional</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/save-the-children.png"
+                alt="Save the Children"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Fundana
+          </div>
+          <div class="client-cell">
+            <div class="client-tag">Asociación Civil</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/construyendo-futuro.png"
+                alt="Construyendo Futuro"
+                class="client-logo"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="client-cell">
+            <div class="client-tag">Fundación</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/fundana.png"
+                alt="Fundana"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
           <!-- Servicios -->
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Servicios
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              EHK+
-            </div>
-          </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Servicios
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              MM Service
+          <div class="client-cell">
+            <div class="client-tag">Servicios</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/ehk-plus.png"
+                alt="EHK+"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Industrial
+          <div class="client-cell">
+            <div class="client-tag">Servicios</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/mm-service.png"
+                alt="MM Service"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Inmarvenco
+          </div>
+          <div class="client-cell">
+            <div class="client-tag">Industrial</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/inmarvenco.png"
+                alt="Inmarvenco"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
           <!-- Construcción / Inmobiliario -->
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Construcción
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Liberty Constructions
-            </div>
-          </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Residencial
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Promociones Indio Mara
+          <div class="client-cell">
+            <div class="client-tag">Construcción</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/liberty-constructions.png"
+                alt="Liberty Constructions"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Inmobiliario
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Valores e Inmuebles
-            </div>
-          </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Residencial
-            </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Grand Europa
+          <div class="client-cell">
+            <div class="client-tag">Residencial</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/indio-mara.png"
+                alt="Promociones Indio Mara"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div
-            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
-          >
-            <div
-              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
-            >
-              Residencial
+          <div class="client-cell">
+            <div class="client-tag">Inmobiliario</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/valores-inmuebles.png"
+                alt="Valores e Inmuebles"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
-            <div class="font-display text-xl md:text-2xl font-bold text-white">
-              Edificio Moschella
+          </div>
+          <div class="client-cell">
+            <div class="client-tag">Residencial</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/grand-europa.png"
+                alt="Grand Europa"
+                class="client-logo"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="client-cell">
+            <div class="client-tag">Residencial</div>
+            <div class="client-logo-wrap">
+              <img
+                src="media/clients/moschella.png"
+                alt="Edificio Moschella"
+                class="client-logo"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
