@@ -1,0 +1,2218 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      INNOVEN C.A. — Servicios Industriales Integrales | Petrolero ·
+      Petroquímico · Industrial
+    </title>
+    <meta
+      name="description"
+      content="INNOVEN C.A. — empresa venezolana especializada en servicios industriales integrales y procura para los sectores petrolero, petroquímico e industrial. Representantes oficiales de Morgan Advanced Materials – Thermal Ceramics."
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="INNOVEN C.A. — Servicios Industriales Integrales"
+    />
+    <meta
+      property="og:description"
+      content="Aislamiento térmico, refrigeración industrial, ingeniería civil, metalmecánica y procura para los sectores petrolero, petroquímico e industrial en Venezuela."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://innovenca.com" />
+    <meta property="og:image" content="https://innovenca.com/og-image.jpg" />
+    <meta property="og:locale" content="es_VE" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: {
+                950: "#000000",
+                900: "#070707",
+                800: "#101010",
+                700: "#161616",
+                600: "#1c1c1c",
+                500: "#27272a",
+                400: "#3f3f46",
+              },
+              brand: { DEFAULT: "#D4202A", dark: "#A0151D", light: "#E63946" },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Space Grotesk", "Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #000;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Display headings */
+      .font-display {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        letter-spacing: -0.02em;
+      }
+      .display-xl {
+        font-size: clamp(2.75rem, 6vw, 5.5rem);
+        line-height: 0.95;
+        font-weight: 700;
+      }
+      .display-lg {
+        font-size: clamp(2rem, 4.5vw, 3.75rem);
+        line-height: 1;
+        font-weight: 700;
+      }
+      .display-md {
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        line-height: 1.1;
+        font-weight: 600;
+      }
+
+      /* Hero video */
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.55) contrast(1.05);
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at top,
+            transparent 0%,
+            rgba(0, 0, 0, 0.55) 60%,
+            rgba(0, 0, 0, 0.95) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.2) 40%,
+            rgba(0, 0, 0, 0.95) 100%
+          );
+      }
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.04) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.04) 1px,
+            transparent 1px
+          );
+        background-size: 60px 60px;
+        mask-image: radial-gradient(
+          ellipse at center,
+          black 30%,
+          transparent 80%
+        );
+      }
+
+      /* Brand accent line */
+      .accent-line {
+        height: 4px;
+        width: 56px;
+        background: #d4202a;
+        display: inline-block;
+      }
+      .accent-line-sm {
+        height: 2px;
+        width: 32px;
+        background: #d4202a;
+        display: inline-block;
+      }
+
+      /* Card hover */
+      .service-card {
+        transition:
+          transform 0.35s ease,
+          border-color 0.35s ease,
+          background 0.35s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-4px);
+        border-color: #d4202a;
+      }
+
+      /* Marquee */
+      .marquee {
+        overflow: hidden;
+        mask-image: linear-gradient(
+          90deg,
+          transparent,
+          black 8%,
+          black 92%,
+          transparent
+        );
+      }
+      .marquee-track {
+        display: flex;
+        gap: 4rem;
+        width: max-content;
+        animation: marquee 40s linear infinite;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Section divider */
+      .section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #a1a1aa;
+      }
+      .section-tag::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: #d4202a;
+      }
+
+      /* Image overlay */
+      .img-overlay::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 40%,
+          rgba(0, 0, 0, 0.85) 100%
+        );
+        pointer-events: none;
+      }
+
+      /* Reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Number ticker */
+      .stat-num {
+        font-feature-settings: "tnum";
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1c1c1c;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d4202a;
+      }
+
+      /* Mobile menu */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      /* Logo wash – make Innoven logo work on dark bg by inverting the text portion */
+      .logo-img {
+        filter: invert(1) hue-rotate(180deg) saturate(0);
+      }
+      .logo-img-color {
+        filter: brightness(0) invert(1);
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white">
+    <!-- ============================================================ NAV -->
+    <header
+      id="nav"
+      class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+    >
+      <div class="border-b border-white/5 backdrop-blur-md bg-black/70">
+        <div
+          class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"
+        >
+          <a
+            href="#top"
+            class="flex items-center gap-3 group"
+            aria-label="INNOVEN inicio"
+          >
+            <img
+              src="/media/innoven-logo.png"
+              alt="Innoven"
+              class="h-8 md:h-9 w-auto logo-img-color group-hover:opacity-80 transition"
+            />
+          </a>
+          <nav
+            class="hidden lg:flex items-center gap-9 text-sm font-medium text-zinc-300"
+          >
+            <a href="#nosotros" class="hover:text-white transition">Nosotros</a>
+            <a href="#servicios" class="hover:text-white transition"
+              >Servicios</a
+            >
+            <a href="#morgan" class="hover:text-white transition"
+              >Representación</a
+            >
+            <a href="#clientes" class="hover:text-white transition">Clientes</a>
+            <a href="#contacto" class="hover:text-white transition">Contacto</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <a
+              href="#contacto"
+              class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition rounded-sm"
+            >
+              Solicitar cotización
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+            <button
+              id="menu-btn"
+              class="lg:hidden text-white p-2"
+              aria-label="Abrir menú"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================ MOBILE MENU -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu fixed inset-0 z-[60] bg-black lg:hidden"
+    >
+      <div
+        class="h-20 flex items-center justify-between px-6 border-b border-white/5"
+      >
+        <img
+          src="/media/innoven-logo.png"
+          alt="Innoven"
+          class="h-8 w-auto logo-img-color"
+        />
+        <button id="menu-close" class="text-white p-2" aria-label="Cerrar menú">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <nav
+        class="px-6 py-10 flex flex-col gap-2 text-2xl font-display font-semibold"
+      >
+        <a
+          href="#nosotros"
+          class="py-3 border-b border-white/5 hover:text-brand transition"
+          >Nosotros</a
+        >
+        <a
+          href="#servicios"
+          class="py-3 border-b border-white/5 hover:text-brand transition"
+          >Servicios</a
+        >
+        <a
+          href="#morgan"
+          class="py-3 border-b border-white/5 hover:text-brand transition"
+          >Representación</a
+        >
+        <a
+          href="#clientes"
+          class="py-3 border-b border-white/5 hover:text-brand transition"
+          >Clientes</a
+        >
+        <a
+          href="#contacto"
+          class="py-3 border-b border-white/5 hover:text-brand transition"
+          >Contacto</a
+        >
+        <a
+          href="#contacto"
+          class="mt-8 inline-flex items-center justify-center gap-2 px-6 py-4 bg-brand text-white text-base font-semibold"
+        >
+          Solicitar cotización
+        </a>
+      </nav>
+    </div>
+
+    <!-- ============================================================ HERO -->
+    <section
+      id="top"
+      class="relative min-h-screen w-full overflow-hidden flex items-end pb-20 md:pb-32 pt-32"
+    >
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="/media/hero-poster.jpg"
+      >
+        <source
+          src="/media/hero-desktop.mp4"
+          type="video/mp4"
+          media="(min-width: 768px)"
+        />
+        <source src="/media/hero-mobile.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
+        <div class="max-w-4xl">
+          <div class="section-tag mb-8">Innoven · Suministros y Servicios</div>
+          <h1 class="font-display display-xl text-white">
+            Soluciones industriales <span class="text-brand">integrales</span
+            ><br />
+            para la operación que
+            <span class="italic font-medium text-white/90">no puede parar</span
+            >.
+          </h1>
+          <p
+            class="mt-8 max-w-2xl text-lg md:text-xl text-zinc-300 font-light leading-relaxed"
+          >
+            Ingeniería, mantenimiento y procura para los sectores petrolero,
+            petroquímico e industrial en Venezuela. Representantes oficiales de
+            <span class="text-white font-medium"
+              >Morgan Advanced Materials – Thermal Ceramics</span
+            >.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#servicios"
+              class="inline-flex items-center gap-2 px-7 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
+            >
+              Ver servicios
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+            </a>
+            <a
+              href="#contacto"
+              class="inline-flex items-center gap-2 px-7 py-4 border border-white/20 hover:border-white text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
+            >
+              Solicitar cotización
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero stats -->
+        <div
+          class="mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10"
+        >
+          <div class="bg-black/80 backdrop-blur-sm p-6">
+            <div
+              class="font-display text-3xl md:text-4xl font-bold text-white stat-num"
+            >
+              24/7
+            </div>
+            <div class="mt-2 text-xs uppercase tracking-widest text-zinc-400">
+              Personal disponible
+            </div>
+          </div>
+          <div class="bg-black/80 backdrop-blur-sm p-6">
+            <div class="font-display text-3xl md:text-4xl font-bold text-white">
+              +20
+            </div>
+            <div class="mt-2 text-xs uppercase tracking-widest text-zinc-400">
+              Clientes activos
+            </div>
+          </div>
+          <div class="bg-black/80 backdrop-blur-sm p-6">
+            <div class="font-display text-3xl md:text-4xl font-bold text-white">
+              4
+            </div>
+            <div class="mt-2 text-xs uppercase tracking-widest text-zinc-400">
+              Áreas de servicio
+            </div>
+          </div>
+          <div class="bg-black/80 backdrop-blur-sm p-6">
+            <div class="font-display text-3xl md:text-4xl font-bold text-brand">
+              SGC
+            </div>
+            <div class="mt-2 text-xs uppercase tracking-widest text-zinc-400">
+              Sistema de calidad
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-zinc-500 text-xs uppercase tracking-widest"
+      >
+        <span>Scroll</span>
+        <svg
+          class="w-4 h-4 animate-bounce"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================================ TRUST STRIP (clientes destacados) -->
+    <section class="relative bg-ink-900 border-y border-white/5 py-10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+          <div
+            class="text-xs uppercase tracking-widest text-zinc-500 font-semibold whitespace-nowrap"
+          >
+            Confían en nosotros
+          </div>
+          <div class="marquee flex-1">
+            <div class="marquee-track">
+              <!-- repeat 2x for seamless loop -->
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >PDVSA</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Pequiven</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Cementos Catatumbo</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >UNICEF</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >ACNUR</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Save the Children</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >North American Energy</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Pralca</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >PDVSA Petroperijá</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Global Group Shipping</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >EHK+</span
+              >
+              <!-- duplicate -->
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >PDVSA</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Pequiven</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Cementos Catatumbo</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >UNICEF</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >ACNUR</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Save the Children</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >North American Energy</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Pralca</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >PDVSA Petroperijá</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >Global Group Shipping</span
+              >
+              <span
+                class="font-display text-xl md:text-2xl font-semibold text-white/70"
+                >EHK+</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ SOBRE NOSOTROS -->
+    <section id="nosotros" class="relative py-24 md:py-32 bg-black">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div class="lg:col-span-5 lg:sticky lg:top-32">
+            <div class="section-tag mb-6">01 / Sobre Nosotros</div>
+            <h2 class="font-display display-lg text-white">
+              Aliados estratégicos<br /><span class="text-brand"
+                >de la industria</span
+              >
+              venezolana.
+            </h2>
+          </div>
+
+          <div class="lg:col-span-7 space-y-8">
+            <div class="relative aspect-[16/10] overflow-hidden img-overlay">
+              <img
+                src="/media/img-15.jpg"
+                alt="Equipo Innoven en planta petroquímica"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div
+              class="space-y-6 text-zinc-300 text-lg leading-relaxed font-light"
+            >
+              <p>
+                <span class="text-white font-semibold">INNOVEN C.A.</span> es
+                una empresa venezolana especializada en la prestación de
+                servicios industriales integrales y procura de materiales y
+                equipos, con amplia trayectoria en los sectores petrolero,
+                petroquímico e industrial.
+              </p>
+              <p>
+                Contamos con un equipo de ingenieros, técnicos y especialistas
+                altamente calificados, respaldados por representaciones de
+                fabricantes líderes a nivel mundial.
+              </p>
+              <p>
+                Nos posicionamos como aliados estratégicos de nuestros clientes,
+                aportando soluciones técnicas confiables, eficientes y adaptadas
+                a las exigencias operacionales de cada proyecto. Nuestro enfoque
+                está orientado a contribuir directamente a la
+                <span class="text-white">integridad de los activos</span>, la
+                <span class="text-white">continuidad operativa</span> y el
+                <span class="text-white">beneficio económico sostenible</span>
+                de las operaciones de nuestros contratantes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ MISIÓN / VISIÓN -->
+    <section class="relative bg-ink-900 border-t border-white/5">
+      <div class="grid md:grid-cols-2">
+        <div
+          class="p-10 md:p-16 lg:p-20 border-b md:border-b-0 md:border-r border-white/5 relative"
+        >
+          <div class="section-tag mb-6">Misión</div>
+          <h3 class="font-display display-md mb-6 text-white">
+            Soluciones integrales con compromiso técnico.
+          </h3>
+          <p class="text-zinc-400 text-lg leading-relaxed font-light">
+            En INNOVEN, brindamos soluciones integrales en ingeniería civil,
+            mecánica, eléctrica e instrumentación, así como en la procura de
+            proyectos, con un firme compromiso hacia la calidad, la mejora
+            continua y la satisfacción del cliente. Actuamos con responsabilidad
+            técnica y profesional, adaptándonos a los desafíos del entorno para
+            garantizar resultados confiables y eficientes.
+          </p>
+        </div>
+        <div class="p-10 md:p-16 lg:p-20 relative bg-ink-800">
+          <div class="section-tag mb-6">Visión</div>
+          <h3 class="font-display display-md mb-6 text-white">
+            Ser <span class="text-brand">referencia</span> en ingeniería
+            multidisciplinaria.
+          </h3>
+          <p class="text-zinc-400 text-lg leading-relaxed font-light">
+            Ser reconocidos como una empresa líder en ingeniería
+            multidisciplinaria en Venezuela, destacándonos por nuestra
+            excelencia operativa, capacidad de adaptación y compromiso con los
+            clientes, consolidando relaciones de confianza a largo plazo en cada
+            proyecto que emprendemos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ SERVICIOS -->
+    <section id="servicios" class="relative py-24 md:py-32 bg-black">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl mb-16 md:mb-20">
+          <div class="section-tag mb-6">02 / Productos y Servicios</div>
+          <h2 class="font-display display-lg text-white">
+            Cuatro áreas. <span class="text-brand">Una sola</span> capacidad
+            operativa.
+          </h2>
+          <p class="mt-6 text-lg text-zinc-400 font-light">
+            Capacidades agrupadas para el mantenimiento integral, intervención
+            estructural, protección de activos y procura técnica de plantas
+            industriales.
+          </p>
+        </div>
+
+        <!-- Service 1: Aislamiento -->
+        <article
+          class="service-card group border border-white/10 bg-ink-900 mb-6"
+        >
+          <div class="grid lg:grid-cols-12 gap-0">
+            <div
+              class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden"
+            >
+              <img
+                src="/media/img-16.jpg"
+                alt="Aislamiento térmico industrial en planta petroquímica"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+            <div class="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col">
+              <div class="flex items-start justify-between gap-6 mb-6">
+                <div>
+                  <div
+                    class="text-xs font-semibold text-brand uppercase tracking-widest mb-3"
+                  >
+                    01 — Servicio
+                  </div>
+                  <h3 class="font-display display-md text-white">
+                    Ingeniería de Aislamiento e Integridad Térmica
+                  </h3>
+                </div>
+                <div class="hidden lg:flex flex-col items-end gap-1 shrink-0">
+                  <div
+                    class="px-3 py-1 border border-brand/40 text-brand text-[10px] font-bold tracking-widest uppercase"
+                  >
+                    Representantes
+                  </div>
+                  <div class="text-xs text-zinc-500 mt-1">
+                    Morgan Thermal Ceramics
+                  </div>
+                </div>
+              </div>
+              <p class="text-zinc-400 leading-relaxed mb-8">
+                Conservación energética, protección de activos y continuidad
+                operativa de plantas e instalaciones industriales. Soluciones
+                para servicios de calor, frío criogénico, control acústico y
+                refractarios.
+              </p>
+              <div
+                class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-zinc-300"
+              >
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Aislamiento térmico
+                  industrial
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Servicios criogénicos (Foam
+                  Glass)
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Aislamiento acústico
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Sistemas refractarios
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Fire Proofing estructural
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Fibra cerámica · Silicato de
+                  calcio
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 2: Refrigeración -->
+        <article
+          class="service-card group border border-white/10 bg-ink-900 mb-6"
+        >
+          <div class="grid lg:grid-cols-12 gap-0">
+            <div
+              class="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1"
+            >
+              <div class="flex items-start justify-between gap-6 mb-6">
+                <div>
+                  <div
+                    class="text-xs font-semibold text-brand uppercase tracking-widest mb-3"
+                  >
+                    02 — Servicio
+                  </div>
+                  <h3 class="font-display display-md text-white">
+                    Refrigeración y Climatización Industrial
+                  </h3>
+                </div>
+                <div class="hidden lg:flex flex-col items-end shrink-0">
+                  <div
+                    class="px-3 py-1 bg-brand text-white text-[10px] font-bold tracking-widest uppercase"
+                  >
+                    24 / 7 / 365
+                  </div>
+                </div>
+              </div>
+              <p class="text-zinc-400 leading-relaxed mb-8">
+                Diseño, instalación y mantenimiento especializado de sistemas de
+                aire acondicionado de confort, precisión y agua helada. Personal
+                disponible las 24 horas para garantizar la continuidad de salas
+                de control y procesos críticos.
+              </p>
+              <div
+                class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-zinc-300"
+              >
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> A/C confort, precisión y
+                  agua helada
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Ductería en lámina
+                  galvanizada y poliuretano
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Mantenimiento Liebert y
+                  otros equipos
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Suministro de repuestos
+                  originales
+                </div>
+              </div>
+            </div>
+            <div
+              class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden order-1 lg:order-2"
+            >
+              <img
+                src="/media/img-15.jpg"
+                alt="Mantenimiento de equipos de refrigeración en planta petroquímica"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 3: Civil e Industrial -->
+        <article
+          class="service-card group border border-white/10 bg-ink-900 mb-6"
+        >
+          <div class="grid lg:grid-cols-12 gap-0">
+            <div
+              class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden"
+            >
+              <img
+                src="/media/img-07.jpg"
+                alt="Soldadura industrial y trabajos metalmecánicos"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+            <div class="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col">
+              <div class="mb-6">
+                <div
+                  class="text-xs font-semibold text-brand uppercase tracking-widest mb-3"
+                >
+                  03 — Servicio
+                </div>
+                <h3 class="font-display display-md text-white">
+                  Ingeniería Civil e Industrial
+                </h3>
+              </div>
+              <p class="text-zinc-400 leading-relaxed mb-8">
+                Proyectos integrales de ingeniería civil e industrial con
+                personal calificado y equipos propios. Capacidades de
+                construcción, intervención estructural, protección de
+                superficies y servicios eléctricos.
+              </p>
+
+              <div class="space-y-5 text-sm">
+                <div>
+                  <div
+                    class="text-white font-semibold mb-2 text-xs uppercase tracking-widest text-brand"
+                  >
+                    Obras Civiles
+                  </div>
+                  <div class="text-zinc-400 leading-relaxed">
+                    Construcción y remodelación · Movimiento de tierra ·
+                    Impermeabilización · Andamios (suministro, montaje,
+                    alquiler)
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="text-white font-semibold mb-2 text-xs uppercase tracking-widest text-brand"
+                  >
+                    Metalmecánica y Estructuras
+                  </div>
+                  <div class="text-zinc-400 leading-relaxed">
+                    Fabricación y montaje de estructuras metálicas · Soldadura
+                    SMAW, MIG/MAG, TIG · Alquiler de equipos pesados
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="text-white font-semibold mb-2 text-xs uppercase tracking-widest text-brand"
+                  >
+                    Tratamiento y Protección de Superficies
+                  </div>
+                  <div class="text-zinc-400 leading-relaxed">
+                    Sandblasting · Pintura industrial anticorrosiva ·
+                    Recubrimientos epóxicos · Pasivado anticorrosivo
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="text-white font-semibold mb-2 text-xs uppercase tracking-widest text-brand"
+                  >
+                    Electricidad e Instrumentación
+                  </div>
+                  <div class="text-zinc-400 leading-relaxed">
+                    Generación y transformación · Transmisión y distribución ·
+                    Instrumentación y control de procesos
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 4: Empacaduras -->
+        <article class="service-card group border border-white/10 bg-ink-900">
+          <div class="grid lg:grid-cols-12 gap-0">
+            <div
+              class="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1"
+            >
+              <div class="mb-6">
+                <div
+                  class="text-xs font-semibold text-brand uppercase tracking-widest mb-3"
+                >
+                  04 — Procura
+                </div>
+                <h3 class="font-display display-md text-white">
+                  Empacaduras y Sellado Industrial
+                </h3>
+              </div>
+              <p class="text-zinc-400 leading-relaxed mb-8">
+                Suministro de soluciones de sellado de alta integridad para
+                líneas críticas, recipientes a presión y bridas industriales en
+                operaciones petroleras y petroquímicas.
+              </p>
+              <div
+                class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-zinc-300"
+              >
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Kits de juntas para
+                  aislamiento de bridas
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Empacaduras espirometálicas
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Sellos de grafito flexible
+                </div>
+                <div class="flex gap-3">
+                  <span class="text-brand">▍</span> Juntas tipo D (RTJ), E (FF)
+                  y F (RF)
+                </div>
+              </div>
+            </div>
+            <div
+              class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden order-1 lg:order-2 bg-ink-800"
+            >
+              <img
+                src="/media/img-11.jpg"
+                alt="Componentes industriales y empacaduras"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================ MORGAN BANNER -->
+    <section
+      id="morgan"
+      class="relative py-24 md:py-32 bg-ink-900 overflow-hidden border-y border-white/5"
+    >
+      <div class="absolute inset-0 opacity-20">
+        <img
+          src="/media/img-16.jpg"
+          alt=""
+          class="w-full h-full object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"
+        ></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7">
+            <div class="section-tag mb-6">Representación Oficial</div>
+            <h2 class="font-display display-lg text-white mb-6">
+              Representantes oficiales de<br />
+              <span class="text-brand">Morgan Advanced Materials</span><br />
+              <span class="text-white/90">– Thermal Ceramics</span>
+            </h2>
+            <p
+              class="text-lg text-zinc-300 max-w-2xl font-light leading-relaxed"
+            >
+              Fabricante líder mundial en soluciones de aislamiento térmico y
+              materiales refractarios. Esta representación nos posiciona como
+              referencia técnica para el sector petrolero y petroquímico de
+              Venezuela, garantizando calidad de fabricante y respaldo
+              internacional.
+            </p>
+            <div
+              class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-px bg-white/10 border border-white/10"
+            >
+              <div class="bg-black p-5">
+                <div
+                  class="text-xs uppercase tracking-widest text-brand font-semibold mb-1"
+                >
+                  Líder
+                </div>
+                <div class="text-sm text-zinc-300">Mundial en aislamiento</div>
+              </div>
+              <div class="bg-black p-5">
+                <div
+                  class="text-xs uppercase tracking-widest text-brand font-semibold mb-1"
+                >
+                  Calidad
+                </div>
+                <div class="text-sm text-zinc-300">Materiales certificados</div>
+              </div>
+              <div class="bg-black p-5">
+                <div
+                  class="text-xs uppercase tracking-widest text-brand font-semibold mb-1"
+                >
+                  Respaldo
+                </div>
+                <div class="text-sm text-zinc-300">Soporte de fabricante</div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div
+              class="border-2 border-brand p-8 md:p-12 bg-black/80 backdrop-blur-sm"
+            >
+              <div
+                class="text-xs font-bold uppercase tracking-widest text-brand mb-3"
+              >
+                Sello de Representación
+              </div>
+              <div
+                class="font-display text-2xl md:text-3xl font-bold text-white leading-tight mb-4"
+              >
+                Morgan Thermal Ceramics
+              </div>
+              <div class="text-zinc-400 text-sm leading-relaxed">
+                Fibra cerámica · Silicato de calcio · Lana mineral ·
+                Refractarios · Sistemas Fire Proofing certificados
+              </div>
+              <div
+                class="mt-8 pt-6 border-t border-white/10 flex items-center gap-3"
+              >
+                <div class="w-2 h-2 bg-brand rounded-full animate-pulse"></div>
+                <span
+                  class="text-xs uppercase tracking-widest text-zinc-400 font-semibold"
+                  >Stock disponible en Venezuela</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ VALORES -->
+    <section id="valores" class="relative py-24 md:py-32 bg-black">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl mb-16">
+          <div class="section-tag mb-6">03 / Valores</div>
+          <h2 class="font-display display-lg text-white">
+            Lo que nos define<br />en cada
+            <span class="text-brand">proyecto</span>.
+          </h2>
+        </div>
+
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10"
+        >
+          <!-- Calidad -->
+          <div class="bg-black p-8 md:p-10 hover:bg-ink-800 transition group">
+            <div
+              class="font-display text-7xl font-bold text-brand/20 group-hover:text-brand/40 transition mb-4 leading-none"
+            >
+              01
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">
+              Calidad
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Productos y servicios de la más alta calidad, superando las
+              expectativas de nuestros clientes. Aprendizaje y mejora continua.
+            </p>
+          </div>
+          <!-- Trabajo en Equipo -->
+          <div class="bg-black p-8 md:p-10 hover:bg-ink-800 transition group">
+            <div
+              class="font-display text-7xl font-bold text-brand/20 group-hover:text-brand/40 transition mb-4 leading-none"
+            >
+              02
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">
+              Trabajo en Equipo
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Cooperación como base. Juntos logramos más, valorando la
+              contribución de cada individuo para alcanzar objetivos comunes.
+            </p>
+          </div>
+          <!-- Comunicación -->
+          <div class="bg-black p-8 md:p-10 hover:bg-ink-800 transition group">
+            <div
+              class="font-display text-7xl font-bold text-brand/20 group-hover:text-brand/40 transition mb-4 leading-none"
+            >
+              03
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">
+              Comunicación
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Transparencia y respeto. Intercambio constructivo de ideas
+              asegurando que todos los miembros se sientan escuchados.
+            </p>
+          </div>
+          <!-- Satisfacción del Cliente -->
+          <div class="bg-black p-8 md:p-10 hover:bg-ink-800 transition group">
+            <div
+              class="font-display text-7xl font-bold text-brand/20 group-hover:text-brand/40 transition mb-4 leading-none"
+            >
+              04
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">
+              Satisfacción del Cliente
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Superamos expectativas con servicios de alta calidad y soluciones
+              innovadoras que generan valor real en sus operaciones.
+            </p>
+          </div>
+          <!-- Adaptabilidad -->
+          <div class="bg-black p-8 md:p-10 hover:bg-ink-800 transition group">
+            <div
+              class="font-display text-7xl font-bold text-brand/20 group-hover:text-brand/40 transition mb-4 leading-none"
+            >
+              05
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">
+              Adaptabilidad
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Evolución constante para responder eficientemente a las demandas
+              del mercado, ofreciendo soluciones actualizadas y competitivas.
+            </p>
+          </div>
+          <!-- CTA card -->
+          <div
+            class="bg-brand p-8 md:p-10 flex flex-col justify-between hover:bg-brand-dark transition"
+          >
+            <div class="text-white">
+              <div
+                class="text-xs font-bold uppercase tracking-widest mb-3 text-white/80"
+              >
+                ¿Próximo proyecto?
+              </div>
+              <h3 class="font-display text-2xl font-bold leading-tight">
+                Hablemos de cómo podemos sumar a tu operación.
+              </h3>
+            </div>
+            <a
+              href="#contacto"
+              class="mt-8 inline-flex items-center gap-2 text-white text-sm font-bold uppercase tracking-widest border-b border-white pb-1 self-start"
+            >
+              Iniciar conversación
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ POLÍTICAS -->
+    <section class="relative bg-ink-900 border-t border-white/5">
+      <div class="grid lg:grid-cols-2">
+        <!-- Política de Calidad -->
+        <div
+          class="relative p-10 md:p-16 lg:p-20 border-b lg:border-b-0 lg:border-r border-white/5"
+        >
+          <div class="section-tag mb-6">Política de Calidad</div>
+          <h3 class="font-display display-md mb-6 text-white">
+            Sistema de Gestión orientado a estándares internacionales.
+          </h3>
+          <div class="space-y-5 text-zinc-400 leading-relaxed font-light">
+            <p>
+              Asumimos el compromiso de satisfacer plenamente los requerimientos
+              de nuestros clientes y partes interesadas. Garantizamos resultados
+              confiables mediante una
+              <span class="text-white">logística eficiente</span> y asesoría
+              técnica especializada en cada fase del proyecto.
+            </p>
+            <p>
+              Promovemos el desarrollo continuo de nuestro personal y una
+              cultura organizacional basada en la
+              <span class="text-white"
+                >integridad, el respeto y la responsabilidad profesional</span
+              >, impulsando la innovación y la optimización constante de
+              nuestros procesos a través de nuestro Sistema de Gestión de la
+              Calidad (SGC).
+            </p>
+          </div>
+          <div
+            class="mt-10 inline-flex items-center gap-3 px-4 py-2 border border-white/10"
+          >
+            <div class="w-2 h-2 bg-brand rounded-full"></div>
+            <span
+              class="text-xs uppercase tracking-widest text-zinc-300 font-semibold"
+              >SGC en implementación</span
+            >
+          </div>
+        </div>
+
+        <!-- Política SIHAO -->
+        <div class="relative p-10 md:p-16 lg:p-20 bg-ink-800">
+          <div class="section-tag mb-6">Política SIHAO</div>
+          <h3 class="font-display display-md mb-6 text-white">
+            <span class="text-brand">Seguridad</span>, salud y ambiente — sin
+            excepciones.
+          </h3>
+          <div class="space-y-5 text-zinc-400 leading-relaxed font-light">
+            <p>
+              Mantenemos un compromiso firme con la seguridad, salud e higiene
+              ocupacional de nuestros trabajadores y con la preservación del
+              medio ambiente en todas nuestras operaciones.
+            </p>
+            <p>
+              Identificamos, evaluamos y controlamos los riesgos operativos de
+              forma sistemática, aplicando medidas preventivas que protejan la
+              integridad de nuestro personal, las instalaciones de nuestros
+              clientes y el entorno donde operamos.
+            </p>
+          </div>
+          <div class="mt-10 grid grid-cols-4 gap-2">
+            <div class="text-center p-3 border border-white/10">
+              <div class="font-display font-bold text-brand text-xl">S</div>
+              <div
+                class="text-[10px] uppercase tracking-wider text-zinc-500 mt-1"
+              >
+                Seguridad
+              </div>
+            </div>
+            <div class="text-center p-3 border border-white/10">
+              <div class="font-display font-bold text-brand text-xl">I</div>
+              <div
+                class="text-[10px] uppercase tracking-wider text-zinc-500 mt-1"
+              >
+                Higiene
+              </div>
+            </div>
+            <div class="text-center p-3 border border-white/10">
+              <div class="font-display font-bold text-brand text-xl">H</div>
+              <div
+                class="text-[10px] uppercase tracking-wider text-zinc-500 mt-1"
+              >
+                Ambiente
+              </div>
+            </div>
+            <div class="text-center p-3 border border-white/10">
+              <div class="font-display font-bold text-brand text-xl">AO</div>
+              <div
+                class="text-[10px] uppercase tracking-wider text-zinc-500 mt-1"
+              >
+                Operaciones
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ CLIENTES -->
+    <section id="clientes" class="relative py-24 md:py-32 bg-black">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl mb-16">
+          <div class="section-tag mb-6">04 / Clientes</div>
+          <h2 class="font-display display-lg text-white">
+            Operadores e instituciones<br />que
+            <span class="text-brand">confían</span> en nosotros.
+          </h2>
+          <p class="mt-6 text-lg text-zinc-400 font-light">
+            Desde la industria petrolera y petroquímica hasta organismos
+            internacionales — un portafolio que refleja nuestra capacidad de
+            adaptación a entornos exigentes.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-white/5 border border-white/10"
+        >
+          <!-- Sector Petrolero/Petroquímico -->
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Petrolero
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              PDVSA
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Petrolero
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              PDVSA Petroperijá
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Petroquímico
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Pequiven
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Petroquímico
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Pralca
+            </div>
+          </div>
+          <!-- Industria -->
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Industrial
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Cementos Catatumbo
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Energía
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              North American Energy
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Industrial
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              MC Industrias
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Naviero
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Global Group Shipping
+            </div>
+          </div>
+          <!-- ONG / Internacional -->
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Organismo Internacional
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              UNICEF
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Organismo Internacional
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              ACNUR
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              ONG Internacional
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Save the Children
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Asociación Civil
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Construyendo Futuro
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Fundación
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Fundana
+            </div>
+          </div>
+          <!-- Servicios -->
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Servicios
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              EHK+
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Servicios
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              MM Service
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Industrial
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Inmarvenco
+            </div>
+          </div>
+          <!-- Construcción / Inmobiliario -->
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Construcción
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Liberty Constructions
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Promociones
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Indio Mara
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Inmobiliario
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Valores e Inmuebles
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Residencial
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Grand Europa
+            </div>
+          </div>
+          <div
+            class="bg-black p-6 md:p-8 hover:bg-ink-800 transition flex flex-col justify-between min-h-[140px]"
+          >
+            <div
+              class="text-[10px] uppercase tracking-widest text-brand font-bold mb-2"
+            >
+              Residencial
+            </div>
+            <div class="font-display text-xl md:text-2xl font-bold text-white">
+              Edificio Moschella
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ GALERÍA OPERACIONES -->
+    <section id="galeria" class="relative py-24 md:py-32 bg-ink-900">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl mb-12">
+          <div class="section-tag mb-6">Operaciones</div>
+          <h2 class="font-display display-lg text-white">
+            Trabajo de campo,<br /><span class="text-brand"
+              >resultados visibles</span
+            >.
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-06.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Soldadura industrial nocturna"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-15.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Mantenimiento en planta petroquímica"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-02.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Trabajos en planta de cemento"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-11.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Tablero eléctrico industrial"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-16.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Equipos de refrigeración industrial"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-09.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Mantenimiento Liebert"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-07.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Soldadura con careta protectora"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-17.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Instrumentación eléctrica"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-04.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Trabajos civiles industriales"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-12.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Diagnóstico eléctrico"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-08.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Mantenimiento de equipos HVAC"
+            />
+          </div>
+          <div
+            class="aspect-square overflow-hidden group cursor-pointer relative"
+          >
+            <img
+              src="/media/img-01.jpg"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              alt="Edificación civil"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ CONTACTO -->
+    <section
+      id="contacto"
+      class="relative py-24 md:py-32 bg-black border-t border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+          <!-- Left: pitch + info -->
+          <div class="lg:col-span-5">
+            <div class="section-tag mb-6">05 / Contacto</div>
+            <h2 class="font-display display-lg text-white mb-6">
+              Hablemos de tu<br /><span class="text-brand"
+                >próximo proyecto</span
+              >.
+            </h2>
+            <p class="text-lg text-zinc-400 font-light leading-relaxed mb-12">
+              Cuéntanos qué necesita tu operación. Respondemos en menos de 24
+              horas con una propuesta técnica adaptada al alcance del proyecto.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-10 h-10 border border-brand/40 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-4 h-4 text-brand"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="text-xs uppercase tracking-widest text-zinc-500 mb-1"
+                  >
+                    Email comercial
+                  </div>
+                  <a
+                    href="mailto:contacto@innovenca.com"
+                    class="text-white hover:text-brand transition font-medium"
+                    >contacto@innovenca.com</a
+                  >
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-10 h-10 border border-brand/40 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-4 h-4 text-brand"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="text-xs uppercase tracking-widest text-zinc-500 mb-1"
+                  >
+                    Teléfono / WhatsApp
+                  </div>
+                  <a
+                    href="#"
+                    class="text-white hover:text-brand transition font-medium"
+                    >Próximamente</a
+                  >
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-10 h-10 border border-brand/40 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-4 h-4 text-brand"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="text-xs uppercase tracking-widest text-zinc-500 mb-1"
+                  >
+                    Ubicación
+                  </div>
+                  <div class="text-white font-medium">Venezuela</div>
+                  <div class="text-sm text-zinc-400 mt-1">
+                    Operaciones en sectores petrolero y petroquímico
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-10 h-10 border border-brand/40 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-4 h-4 text-brand"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="text-xs uppercase tracking-widest text-zinc-500 mb-1"
+                  >
+                    Disponibilidad
+                  </div>
+                  <div class="text-white font-medium">24 / 7 / 365</div>
+                  <div class="text-sm text-zinc-400 mt-1">
+                    Personal especializado para emergencias operativas
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="lg:col-span-7">
+            <form
+              action="mailto:contacto@innovenca.com"
+              method="post"
+              enctype="text/plain"
+              class="border border-white/10 bg-ink-900 p-8 md:p-10 lg:p-12"
+            >
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                    >Nombre *</label
+                  >
+                  <input
+                    type="text"
+                    name="nombre"
+                    required
+                    class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
+                    placeholder="Tu nombre completo"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                    >Empresa</label
+                  >
+                  <input
+                    type="text"
+                    name="empresa"
+                    class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
+                    placeholder="Nombre de tu empresa"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                    >Email *</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
+                    placeholder="tu@empresa.com"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                    >Teléfono</label
+                  >
+                  <input
+                    type="tel"
+                    name="telefono"
+                    class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
+                    placeholder="+58 ..."
+                  />
+                </div>
+              </div>
+              <div class="mt-6">
+                <label
+                  class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                  >Servicio de interés *</label
+                >
+                <select
+                  name="servicio"
+                  required
+                  class="w-full bg-black border border-white/10 px-4 py-3 text-white focus:border-brand focus:outline-none transition"
+                >
+                  <option value="">Selecciona un servicio</option>
+                  <option>Aislamiento e Integridad Térmica</option>
+                  <option>Refrigeración y Climatización Industrial</option>
+                  <option>Ingeniería Civil e Industrial</option>
+                  <option>Empacaduras y Sellado Industrial</option>
+                  <option>Procura de materiales / equipos</option>
+                  <option>Proyecto integral / Otro</option>
+                </select>
+              </div>
+              <div class="mt-6">
+                <label
+                  class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                  >Detalle del proyecto *</label
+                >
+                <textarea
+                  name="mensaje"
+                  required
+                  rows="5"
+                  class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition resize-none"
+                  placeholder="Cuéntanos sobre el alcance, ubicación y plazos estimados del proyecto..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="mt-8 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-bold uppercase tracking-widest transition"
+              >
+                Enviar solicitud
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
+              <p class="mt-4 text-xs text-zinc-500">
+                Al enviar este formulario aceptas que INNOVEN C.A. utilice tus
+                datos exclusivamente para responder tu solicitud comercial.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ FOOTER -->
+    <footer class="relative bg-black border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+        <div class="grid lg:grid-cols-12 gap-10 mb-12">
+          <div class="lg:col-span-5">
+            <img
+              src="/media/innoven-logo.png"
+              alt="Innoven Suministros y Servicios"
+              class="h-10 w-auto logo-img-color mb-6"
+            />
+            <p class="text-sm text-zinc-400 leading-relaxed max-w-md">
+              Empresa venezolana especializada en la prestación de servicios
+              industriales integrales y procura para los sectores petrolero,
+              petroquímico e industrial.
+            </p>
+          </div>
+
+          <div class="lg:col-span-3">
+            <div
+              class="text-xs font-bold uppercase tracking-widest text-white mb-5"
+            >
+              Servicios
+            </div>
+            <ul class="space-y-3 text-sm text-zinc-400">
+              <li>
+                <a href="#servicios" class="hover:text-brand transition"
+                  >Aislamiento Térmico</a
+                >
+              </li>
+              <li>
+                <a href="#servicios" class="hover:text-brand transition"
+                  >Refrigeración Industrial</a
+                >
+              </li>
+              <li>
+                <a href="#servicios" class="hover:text-brand transition"
+                  >Civil e Industrial</a
+                >
+              </li>
+              <li>
+                <a href="#servicios" class="hover:text-brand transition"
+                  >Empacaduras</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-2">
+            <div
+              class="text-xs font-bold uppercase tracking-widest text-white mb-5"
+            >
+              Empresa
+            </div>
+            <ul class="space-y-3 text-sm text-zinc-400">
+              <li>
+                <a href="#nosotros" class="hover:text-brand transition"
+                  >Nosotros</a
+                >
+              </li>
+              <li>
+                <a href="#morgan" class="hover:text-brand transition">Morgan</a>
+              </li>
+              <li>
+                <a href="#clientes" class="hover:text-brand transition"
+                  >Clientes</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-2">
+            <div
+              class="text-xs font-bold uppercase tracking-widest text-white mb-5"
+            >
+              Contacto
+            </div>
+            <ul class="space-y-3 text-sm text-zinc-400">
+              <li>
+                <a
+                  href="mailto:contacto@innovenca.com"
+                  class="hover:text-brand transition"
+                  >contacto@innovenca.com</a
+                >
+              </li>
+              <li>
+                <a href="#contacto" class="hover:text-brand transition"
+                  >Solicitar cotización</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+        >
+          <div class="text-xs text-zinc-500">
+            &copy; <span id="year">2026</span> INNOVEN C.A. — Suministros y
+            Servicios. Todos los derechos reservados.
+          </div>
+          <div class="text-xs text-zinc-600 uppercase tracking-widest">
+            innovenca.com
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom red bar -->
+      <div class="h-2 bg-brand"></div>
+    </footer>
+
+    <script>
+      // Mobile menu
+      const menuBtn = document.getElementById("menu-btn");
+      const menuClose = document.getElementById("menu-close");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn?.addEventListener("click", () =>
+        mobileMenu.classList.add("open"),
+      );
+      menuClose?.addEventListener("click", () =>
+        mobileMenu.classList.remove("open"),
+      );
+      mobileMenu
+        ?.querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          ),
+        );
+
+      // Scroll-aware nav
+      const nav = document.getElementById("nav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) nav.classList.add("shadow-2xl");
+        else nav.classList.remove("shadow-2xl");
+      });
+
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Reveal on scroll
+      const reveals = document.querySelectorAll(".reveal");
+      if (reveals.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) e.target.classList.add("is-visible");
+            });
+          },
+          { threshold: 0.15 },
+        );
+        reveals.forEach((r) => io.observe(r));
+      }
+    </script>
+  </body>
+</html>
