@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Postulaciones a Vacantes — INNOVEN C.A. | Únete al equipo</title>
+    <meta
+      name="description"
+      content="Postula a las vacantes de INNOVEN C.A. — talento técnico y profesional en ingeniería, operaciones, procura y áreas comerciales para los sectores industrial y energético de Venezuela."
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Postulaciones — INNOVEN C.A." />
+    <meta
+      property="og:description"
+      content="Forma parte del equipo INNOVEN. Servicios industriales integrales en Venezuela."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://innovenca.com/postulaciones.html"
+    />
+    <meta property="og:image" content="https://innovenca.com/og-image.jpg" />
+    <meta property="og:locale" content="es_VE" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: {
+                950: "#000000",
+                900: "#070707",
+                800: "#101010",
+                700: "#161616",
+                600: "#1c1c1c",
+                500: "#27272a",
+                400: "#3f3f46",
+              },
+              brand: { DEFAULT: "#D4202A", dark: "#A0151D", light: "#E63946" },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Space Grotesk", "Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #000;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .font-display {
+        font-family: "Space Grotesk", "Inter", sans-serif;
+        letter-spacing: -0.02em;
+      }
+
+      .section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.9rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: #d4202a;
+        background: rgba(212, 32, 42, 0.08);
+        border: 1px solid rgba(212, 32, 42, 0.25);
+      }
+      .section-tag::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: #d4202a;
+        display: inline-block;
+      }
+
+      .logo-img-color {
+        filter: brightness(0) invert(1);
+      }
+
+      /* Hero gradient bg */
+      .page-hero {
+        background:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(212, 32, 42, 0.18) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(212, 32, 42, 0.08) 0%,
+            transparent 60%
+          ),
+          linear-gradient(180deg, #070707 0%, #000 100%);
+      }
+
+      /* Form iframe */
+      .form-frame {
+        width: 100%;
+        min-height: 1500px;
+        border: 0;
+        background: #ffffff;
+        display: block;
+      }
+      @media (min-width: 768px) {
+        .form-frame {
+          min-height: 1700px;
+        }
+      }
+      .form-shell {
+        position: relative;
+        background: #ffffff;
+        box-shadow:
+          0 30px 80px -30px rgba(212, 32, 42, 0.25),
+          0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      }
+      .form-shell::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #d4202a 0%, #a0151d 100%);
+        z-index: 2;
+      }
+      .form-shell-header {
+        background: #070707;
+        color: #fff;
+        padding: 1.25rem 1.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white">
+    <!-- ============================================================ NAV -->
+    <header
+      id="nav"
+      class="sticky top-0 inset-x-0 z-50 border-b border-white/5 backdrop-blur-md bg-black/80"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <a href="index.html" class="group flex items-center">
+          <img
+            src="media/innoven-logo.png"
+            alt="Innoven Suministros y Servicios"
+            class="h-8 md:h-9 w-auto logo-img-color group-hover:opacity-80 transition"
+          />
+        </a>
+        <nav
+          class="hidden lg:flex items-center gap-9 text-sm font-medium text-zinc-300"
+        >
+          <a href="index.html#nosotros" class="hover:text-white transition"
+            >Nosotros</a
+          >
+          <a href="index.html#servicios" class="hover:text-white transition"
+            >Servicios</a
+          >
+          <a href="index.html#clientes" class="hover:text-white transition"
+            >Clientes</a
+          >
+          <a href="postulaciones.html" class="text-white">Postulaciones</a>
+          <a href="index.html#contacto" class="hover:text-white transition"
+            >Contacto</a
+          >
+        </nav>
+        <a
+          href="index.html"
+          class="hidden md:inline-flex items-center gap-2 px-4 py-2 border border-white/15 hover:border-brand text-white text-sm font-semibold transition rounded-sm"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Volver al inicio
+        </a>
+        <a
+          href="index.html"
+          class="md:hidden text-white p-2"
+          aria-label="Volver al inicio"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- ============================================================ PAGE HEADER -->
+    <section class="page-hero relative pt-16 pb-20 md:pt-24 md:pb-28">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-3xl">
+          <div class="section-tag mb-6">Únete al equipo</div>
+          <h1
+            class="font-display text-4xl md:text-6xl font-bold leading-[1.02] tracking-tight mb-6"
+          >
+            Postulaciones a
+            <span class="text-brand">vacantes</span>
+          </h1>
+          <p
+            class="text-base md:text-lg text-zinc-300 leading-relaxed max-w-2xl"
+          >
+            En INNOVEN C.A. buscamos talento técnico y profesional para sumarse
+            a un equipo que opera en los sectores industrial y energético de
+            Venezuela. Completa el formulario y nuestro equipo de RRHH revisará
+            tu postulación.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ FORM -->
+    <section class="relative bg-black pb-24 md:pb-32">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-10">
+          <!-- LEFT: branded info -->
+          <aside class="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+            <div class="border border-white/10 bg-ink-900 p-8">
+              <img
+                src="media/innoven-logo.png"
+                alt="Innoven"
+                class="h-10 w-auto logo-img-color mb-7"
+              />
+              <h2 class="font-display text-2xl font-bold leading-tight mb-3">
+                Forma parte del equipo
+              </h2>
+              <p class="text-sm text-zinc-400 leading-relaxed mb-7">
+                Profesionales y técnicos comprometidos con la excelencia
+                operativa en sectores industrial y energético.
+              </p>
+
+              <div
+                class="text-xs font-bold uppercase tracking-widest text-brand mb-4"
+              >
+                Áreas con vacantes
+              </div>
+              <ul class="space-y-2.5 text-sm text-zinc-200 mb-7">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-brand mt-0.5">→</span>
+                  Ingeniería Mecánica · Civil · Eléctrica
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-brand mt-0.5">→</span>
+                  Operaciones de campo y supervisión
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-brand mt-0.5">→</span>
+                  Procura, logística y almacén
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-brand mt-0.5">→</span>
+                  Comercial y atención al cliente
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-brand mt-0.5">→</span>
+                  Administración y finanzas
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-brand mt-0.5">→</span>
+                  SIHAO · Calidad
+                </li>
+              </ul>
+
+              <div
+                class="pt-6 border-t border-white/10 text-xs text-zinc-500 leading-relaxed mb-6"
+              >
+                ¿No ves tu área? El formulario incluye un campo libre para que
+                puedas postularte igualmente.
+              </div>
+
+              <div class="space-y-3">
+                <a
+                  href="mailto:contacto@innovenca.com?subject=Consulta%20RRHH%20Postulaci%C3%B3n"
+                  class="flex items-center gap-3 px-4 py-3 border border-white/10 hover:border-brand text-white text-sm transition"
+                >
+                  <svg
+                    class="w-4 h-4 text-brand flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  contacto@innovenca.com
+                </a>
+                <a
+                  href="https://www.instagram.com/innoven.ca/"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex items-center gap-3 px-4 py-3 border border-white/10 hover:border-brand text-white text-sm transition"
+                >
+                  <svg
+                    class="w-4 h-4 text-brand flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                  @innoven.ca
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- RIGHT: form -->
+          <div class="lg:col-span-8">
+            <div class="form-shell">
+              <div class="form-shell-header">
+                <div class="flex items-center gap-3">
+                  <div class="w-2 h-2 bg-brand rounded-full"></div>
+                  <span
+                    class="text-xs font-bold uppercase tracking-widest text-white"
+                    >Formulario oficial de postulación</span
+                  >
+                </div>
+                <span
+                  class="text-[10px] uppercase tracking-widest text-zinc-500"
+                  >INNOVEN C.A.</span
+                >
+              </div>
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSe0ETDgsNLKgF1rRVcNYkacPBlxIvGRvM819l2SDxJyvcy2SQ/viewform?embedded=true"
+                class="form-frame"
+                title="Formulario de postulación INNOVEN"
+                loading="lazy"
+              >
+                Cargando formulario…
+              </iframe>
+            </div>
+
+            <div
+              class="mt-6 px-5 py-4 border border-white/10 bg-ink-900 text-xs text-zinc-500 leading-relaxed"
+            >
+              <strong class="text-zinc-300">Nota:</strong> al enviar el
+              formulario aceptas que INNOVEN C.A. utilice tus datos
+              exclusivamente para procesos de selección de personal. Tu
+              información se mantendrá confidencial y se conservará por un
+              período de 12 meses.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ FOOTER -->
+    <footer class="relative bg-black border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12">
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+        >
+          <a href="index.html" class="flex items-center">
+            <img
+              src="media/innoven-logo.png"
+              alt="Innoven"
+              class="h-9 w-auto logo-img-color"
+            />
+          </a>
+          <div class="flex flex-wrap gap-x-7 gap-y-2 text-sm text-zinc-400">
+            <a href="index.html" class="hover:text-brand transition">Inicio</a>
+            <a href="index.html#servicios" class="hover:text-brand transition"
+              >Servicios</a
+            >
+            <a href="index.html#clientes" class="hover:text-brand transition"
+              >Clientes</a
+            >
+            <a href="index.html#contacto" class="hover:text-brand transition"
+              >Contacto</a
+            >
+            <a
+              href="mailto:contacto@innovenca.com"
+              class="hover:text-brand transition"
+              >contacto@innovenca.com</a
+            >
+          </div>
+        </div>
+        <div
+          class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-xs text-zinc-500"
+        >
+          <div>
+            &copy; <span id="year">2026</span> INNOVEN C.A. — Suministros y
+            Servicios. Todos los derechos reservados.
+          </div>
+          <div class="text-zinc-600 uppercase tracking-widest">
+            innovenca.com
+          </div>
+        </div>
+      </div>
+      <div class="h-1 bg-brand"></div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
