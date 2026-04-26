@@ -1254,12 +1254,26 @@
             <div
               class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden order-1 lg:order-2 bg-ink-800"
             >
-              <img
-                src="media/img-11.jpg"
-                alt="Componentes industriales y empacaduras"
+              <video
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                loading="lazy"
-              />
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="media/servicio-empacaduras-poster.jpg"
+                aria-hidden="true"
+              >
+                <source
+                  src="media/servicio-empacaduras.mp4"
+                  type="video/mp4"
+                  media="(min-width: 768px)"
+                />
+                <source
+                  src="media/servicio-empacaduras-mobile.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </div>
           </div>
         </article>
