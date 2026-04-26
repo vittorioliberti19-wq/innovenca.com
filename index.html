@@ -41,6 +41,9 @@
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
       tailwind.config = {
         theme: {
@@ -410,9 +413,9 @@
             aria-label="INNOVEN inicio"
           >
             <img
-              src="media/innoven-logo.png"
+              src="media/innoven-logo-onblack.png"
               alt="Innoven"
-              class="h-11 md:h-14 w-auto logo-img-color group-hover:opacity-80 transition"
+              class="h-11 md:h-14 w-auto group-hover:opacity-80 transition"
             />
           </a>
           <nav
@@ -486,9 +489,9 @@
         class="h-20 flex items-center justify-between px-6 border-b border-white/5"
       >
         <img
-          src="media/innoven-logo.png"
+          src="media/innoven-logo-onblack.png"
           alt="Innoven"
-          class="h-8 w-auto logo-img-color"
+          class="h-8 w-auto"
         />
         <button id="menu-close" class="text-white p-2" aria-label="Cerrar menú">
           <svg
@@ -706,7 +709,7 @@
               href="brochure-innoven.pdf"
               target="_blank"
               rel="noopener"
-              class="inline-flex items-center justify-center gap-2 px-5 py-3 text-zinc-300 hover:text-white text-sm font-semibold tracking-wide uppercase transition"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 border border-white/20 hover:border-white text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
             >
               <svg
                 class="w-4 h-4"
@@ -1261,10 +1264,26 @@
       id="morgan"
       class="relative py-24 md:py-32 bg-ink-900 overflow-hidden border-y border-white/5"
     >
-      <div class="absolute inset-0 opacity-20">
-        <img src="media/img-16.jpg" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0">
+        <video
+          class="w-full h-full object-cover opacity-80"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="media/morgan-bg-poster.jpg"
+          aria-hidden="true"
+        >
+          <source
+            src="media/morgan-bg.mp4"
+            type="video/mp4"
+            media="(min-width: 768px)"
+          />
+          <source src="media/morgan-bg-mobile.mp4" type="video/mp4" />
+        </video>
         <div
-          class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"
+          class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/15"
         ></div>
       </div>
       <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
@@ -2880,9 +2899,25 @@
                   placeholder="Cuéntanos sobre el alcance, ubicación y plazos estimados del proyecto..."
                 ></textarea>
               </div>
+              <div class="mt-8">
+                <!-- Site key de prueba de Google (siempre pasa). Reemplazar por
+                     la clave real de innovenca.com:
+                     https://www.google.com/recaptcha/admin/create -->
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                  data-theme="dark"
+                ></div>
+                <p
+                  id="captcha-error"
+                  class="hidden mt-2 text-xs text-brand font-semibold"
+                >
+                  Por favor verifica que no eres un robot.
+                </p>
+              </div>
               <button
                 type="submit"
-                class="mt-8 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-bold uppercase tracking-widest transition"
+                class="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-bold uppercase tracking-widest transition"
               >
                 Enviar solicitud
                 <svg
@@ -3065,9 +3100,9 @@
         <div class="grid lg:grid-cols-12 gap-10 mb-12">
           <div class="lg:col-span-4">
             <img
-              src="media/innoven-logo.png"
+              src="media/innoven-logo-onblack.png"
               alt="Innoven Suministros y Servicios"
-              class="h-10 w-auto logo-img-color mb-6"
+              class="h-10 w-auto mb-6"
             />
             <p class="text-sm text-zinc-400 leading-relaxed max-w-md mb-6">
               Empresa venezolana especializada en la prestación de servicios
@@ -3300,7 +3335,15 @@
       // Lead form: route to operaciones@ for servicios, compras@ for procura
       const leadForm = document.getElementById("lead-form");
       const leadServicio = document.getElementById("lead-servicio");
-      leadForm?.addEventListener("submit", () => {
+      const captchaError = document.getElementById("captcha-error");
+      leadForm?.addEventListener("submit", (e) => {
+        const captchaResponse = window.grecaptcha?.getResponse?.() || "";
+        if (!captchaResponse) {
+          e.preventDefault();
+          captchaError?.classList.remove("hidden");
+          return;
+        }
+        captchaError?.classList.add("hidden");
         const opt = leadServicio?.selectedOptions[0];
         const area =
           opt?.dataset.area === "compras" ? "compras" : "operaciones";
