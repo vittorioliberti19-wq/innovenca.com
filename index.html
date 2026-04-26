@@ -198,6 +198,11 @@
       .img-fade-b {
         animation: imgFadeB 8s ease-in-out infinite;
       }
+      /* Slower cycle for video cross-fades */
+      #nosotros .img-fade-a,
+      #nosotros .img-fade-b {
+        animation-duration: 16s;
+      }
       @keyframes imgFadeA {
         0%,
         45% {
@@ -882,13 +887,49 @@
           </div>
 
           <div class="lg:col-span-7 space-y-8">
-            <div class="relative aspect-[16/10] overflow-hidden img-overlay">
-              <img
-                src="media/img-15.jpg"
-                alt="Equipo Innoven en planta industrial"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+            <div
+              class="relative aspect-[16/10] overflow-hidden img-overlay img-fade-stage bg-ink-900"
+            >
+              <video
+                class="img-fade img-fade-a w-full h-full object-cover"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="media/nosotros-img_1394-poster.jpg"
+                aria-hidden="true"
+              >
+                <source
+                  src="media/nosotros-img_1394.mp4"
+                  type="video/mp4"
+                  media="(min-width: 768px)"
+                />
+                <source
+                  src="media/nosotros-img_1394-mobile.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <video
+                class="img-fade img-fade-b w-full h-full object-cover"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="media/nosotros-img_1392-poster.jpg"
+                aria-hidden="true"
+              >
+                <source
+                  src="media/nosotros-img_1392.mp4"
+                  type="video/mp4"
+                  media="(min-width: 768px)"
+                />
+                <source
+                  src="media/nosotros-img_1392-mobile.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </div>
 
             <div
@@ -2532,23 +2573,47 @@
     <!-- ============================================================ CONTACTO -->
     <section
       id="contacto"
-      class="relative py-24 md:py-32 bg-black border-t border-white/10"
+      class="relative py-24 md:py-32 bg-black border-t border-white/10 overflow-hidden"
     >
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <!-- Background video -->
+      <div class="absolute inset-0">
+        <video
+          class="w-full h-full object-cover opacity-80"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="media/contacto-bg-poster.jpg"
+          aria-hidden="true"
+        >
+          <source
+            src="media/contacto-bg.mp4"
+            type="video/mp4"
+            media="(min-width: 768px)"
+          />
+          <source src="media/contacto-bg-mobile.mp4" type="video/mp4" />
+        </video>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/55"
+        ></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <!-- Left: pitch + info -->
           <div class="lg:col-span-5">
             <div
-              class="relative aspect-[4/3] overflow-hidden border border-white/10 mb-10 img-overlay"
+              class="relative aspect-[4/3] overflow-hidden border border-white/10 mb-10 img-overlay bg-black"
             >
               <img
                 src="media/contacto-hero.jpg"
                 alt="Operaciones Innoven en planta industrial"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-contain"
                 loading="lazy"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"
+                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"
               ></div>
             </div>
             <div class="section-tag mb-6">08 / Contacto</div>
@@ -2800,7 +2865,7 @@
               action="mailto:operaciones@innovenca.com"
               method="post"
               enctype="text/plain"
-              class="border border-white/10 bg-ink-900 p-8 md:p-10 lg:p-12"
+              class="border border-white/10 bg-ink-900/70 backdrop-blur-md p-8 md:p-10 lg:p-12"
             >
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
@@ -2902,7 +2967,7 @@
               <div class="mt-8">
                 <div
                   class="g-recaptcha"
-                  data-sitekey="6LfpvsssAAAAAE1cGa3nEtjk9VxvUBZiB1yh4d2L"
+                  data-sitekey="6LfTwcssAAAAANRlOD_sk_BRsyKH6_yML4eVauoH"
                   data-theme="dark"
                 ></div>
                 <p
