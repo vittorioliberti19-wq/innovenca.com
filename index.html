@@ -105,34 +105,29 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: brightness(0.85) contrast(1.05);
+        filter: brightness(0.95) contrast(1.05);
       }
-      /* Side gradient: dark on left for text readability, transparent on right so video/logo shines */
+      /* Minimal overlay: just enough to anchor label at top and stats at bottom */
       .hero-overlay {
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.85) 0%,
-            rgba(0, 0, 0, 0.65) 35%,
-            rgba(0, 0, 0, 0.2) 65%,
-            rgba(0, 0, 0, 0) 100%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.2) 0%,
-            rgba(0, 0, 0, 0) 40%,
-            rgba(0, 0, 0, 0.85) 100%
-          );
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.55) 0%,
+          rgba(0, 0, 0, 0.05) 22%,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0.15) 70%,
+          rgba(0, 0, 0, 0.85) 100%
+        );
       }
       @media (max-width: 768px) {
         .hero-overlay {
           background: linear-gradient(
             180deg,
-            rgba(0, 0, 0, 0.55) 0%,
-            rgba(0, 0, 0, 0.4) 40%,
-            rgba(0, 0, 0, 0.95) 100%
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.05) 25%,
+            rgba(0, 0, 0, 0.1) 60%,
+            rgba(0, 0, 0, 0.9) 100%
           );
         }
       }
@@ -183,6 +178,48 @@
       .service-card:hover {
         transform: translateY(-4px);
         border-color: #d4202a;
+      }
+
+      /* Cross-fade slideshow for service images */
+      .img-fade-stage {
+        position: relative;
+        background: #0a0a0a;
+      }
+      .img-fade {
+        position: absolute;
+        inset: 0;
+      }
+      .img-fade-a {
+        animation: imgFadeA 8s ease-in-out infinite;
+      }
+      .img-fade-b {
+        animation: imgFadeB 8s ease-in-out infinite;
+      }
+      @keyframes imgFadeA {
+        0%,
+        45% {
+          opacity: 1;
+        }
+        55%,
+        95% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes imgFadeB {
+        0%,
+        45% {
+          opacity: 0;
+        }
+        55%,
+        95% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
       }
 
       /* Marquee */
@@ -524,7 +561,7 @@
     <!-- ============================================================ HERO -->
     <section
       id="top"
-      class="relative min-h-screen w-full overflow-hidden flex items-end pb-20 md:pb-32 pt-32"
+      class="relative min-h-screen w-full overflow-hidden flex flex-col pt-32 pb-16 md:pb-24"
     >
       <video
         class="hero-video"
@@ -543,80 +580,18 @@
       </video>
       <div class="hero-overlay"></div>
 
+      <!-- Top label -->
       <div class="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
-        <div class="max-w-xl lg:max-w-2xl">
-          <div class="section-tag mb-8">Innoven · Suministros y Servicios</div>
-          <h1
-            class="font-display text-white font-bold leading-[0.95] tracking-tight text-[clamp(2.25rem,4.5vw,4rem)]"
-          >
-            Soluciones industriales <span class="text-brand">integrales</span
-            ><br />
-            para la operación que
-            <span class="italic font-medium text-white/90">no puede parar</span
-            >.
-          </h1>
-          <p
-            class="mt-7 max-w-lg text-base md:text-lg text-zinc-300 font-light leading-relaxed"
-          >
-            Ingeniería, mantenimiento y procura para los sectores industriales
-            en Venezuela. Representantes oficiales de
-            <span class="text-white font-medium"
-              >Morgan Advanced Materials – Thermal Ceramics</span
-            >.
-          </p>
-          <div class="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#servicios"
-              class="inline-flex items-center gap-2 px-7 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
-            >
-              Ver servicios
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-            </a>
-            <a
-              href="#contacto"
-              class="inline-flex items-center gap-2 px-7 py-4 border border-white/20 hover:border-white text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
-            >
-              Solicitar cotización
-            </a>
-            <a
-              href="brochure-innoven.pdf"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-2 px-5 py-4 text-zinc-300 hover:text-white text-sm font-semibold tracking-wide uppercase transition"
-            >
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              Dossier corporativo
-            </a>
-          </div>
-        </div>
+        <div class="section-tag">Innoven · Suministros y Servicios</div>
+      </div>
 
-        <!-- Hero stats -->
+      <!-- Spacer to push stats to bottom while video reigns -->
+      <div class="relative flex-1"></div>
+
+      <!-- Hero stats anchored at bottom -->
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
         <div
-          class="mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10"
+          class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10"
         >
           <div class="bg-black/80 backdrop-blur-sm p-6">
             <div
@@ -673,6 +648,83 @@
             d="M19 14l-7 7m0 0l-7-7m7 7V3"
           />
         </svg>
+      </div>
+    </section>
+
+    <!-- ============================================================ HERO PITCH (entre stats y trust strip) -->
+    <section class="relative bg-black border-b border-white/5 py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <div class="lg:col-span-8">
+            <h1
+              class="font-display text-white font-bold leading-[0.95] tracking-tight text-[clamp(2.25rem,4.5vw,4rem)]"
+            >
+              Soluciones industriales <span class="text-brand">integrales</span
+              ><br />
+              para la operación que
+              <span class="italic font-medium text-white/90"
+                >no puede parar</span
+              >.
+            </h1>
+            <p
+              class="mt-7 max-w-2xl text-base md:text-lg text-zinc-300 font-light leading-relaxed"
+            >
+              Ingeniería, mantenimiento y procura para los sectores industriales
+              en Venezuela. Representantes oficiales de
+              <span class="text-white font-medium"
+                >Morgan Advanced Materials – Thermal Ceramics</span
+              >.
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex flex-col gap-3">
+            <a
+              href="#servicios"
+              class="inline-flex items-center justify-between gap-2 px-7 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
+            >
+              Ver servicios
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+            </a>
+            <a
+              href="#contacto"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 border border-white/20 hover:border-white text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
+            >
+              Solicitar cotización
+            </a>
+            <a
+              href="brochure-innoven.pdf"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3 text-zinc-300 hover:text-white text-sm font-semibold tracking-wide uppercase transition"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              Dossier corporativo
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -928,7 +980,7 @@
               class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden"
             >
               <img
-                src="media/img-16.jpg"
+                src="media/services/aislamiento.jpg"
                 alt="Aislamiento térmico industrial en planta industrial"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -1047,12 +1099,18 @@
               </div>
             </div>
             <div
-              class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden order-1 lg:order-2"
+              class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden order-1 lg:order-2 img-fade-stage"
             >
               <img
                 src="media/img-15.jpg"
                 alt="Mantenimiento de equipos de refrigeración en planta industrial"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                class="img-fade img-fade-a w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <img
+                src="media/img-16.jpg"
+                alt="Servicio 24/7 sobre unidades de aire acondicionado industrial"
+                class="img-fade img-fade-b w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
             </div>
@@ -1068,8 +1126,8 @@
               class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden"
             >
               <img
-                src="media/img-07.jpg"
-                alt="Soldadura industrial y trabajos metalmecánicos"
+                src="media/services/civil.jpg"
+                alt="Equipo Innoven en obra civil e industrial"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
@@ -1273,15 +1331,6 @@
               <div class="text-zinc-400 text-sm leading-relaxed">
                 Fibra cerámica · Silicato de calcio · Lana mineral ·
                 Refractarios · Sistemas Fire Proofing certificados
-              </div>
-              <div
-                class="mt-8 pt-6 border-t border-white/10 flex items-center gap-3"
-              >
-                <div class="w-2 h-2 bg-brand rounded-full animate-pulse"></div>
-                <span
-                  class="text-xs uppercase tracking-widest text-zinc-400 font-semibold"
-                  >Stock disponible en Venezuela</span
-                >
               </div>
             </div>
           </div>
@@ -1920,11 +1969,109 @@
       </div>
     </section>
 
+    <!-- ============================================================ CAPACITACIÓN -->
+    <section
+      id="capacitacion"
+      class="relative py-24 md:py-32 bg-ink-900 border-t border-white/5 overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 mb-14 md:mb-20">
+          <div class="lg:col-span-5">
+            <div class="section-tag mb-6">06 / Capacitación Continua</div>
+            <h2 class="font-display display-lg text-white">
+              Invertimos en la<br />
+              <span class="text-brand">formación</span> de nuestro personal.
+            </h2>
+          </div>
+          <div class="lg:col-span-7 lg:pt-4">
+            <p class="text-lg text-zinc-300 font-light leading-relaxed">
+              En Innoven creemos que la capacitación continua es lo que sostiene
+              la calidad operativa en campo. Cada miembro del equipo participa
+              en programas de formación técnica y de seguridad, actualizando
+              competencias en aislamiento, refrigeración, soldadura,
+              electricidad, prevención de riesgos y normas SIHAO.
+            </p>
+            <p class="mt-5 text-zinc-400 leading-relaxed">
+              Es así como garantizamos que cada intervención se ejecute con
+              criterio técnico, cuidado humano y apego estricto a los estándares
+              internacionales.
+            </p>
+          </div>
+        </div>
+
+        <!-- Galería capacitación: 1 destacada + 4 grid -->
+        <div class="grid grid-cols-12 gap-3 md:gap-4">
+          <div
+            class="col-span-12 lg:col-span-7 relative aspect-[4/3] lg:aspect-[16/11] overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-01.jpg"
+              alt="Personal Innoven en sesión de capacitación técnica"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 p-5 md:p-6 bg-gradient-to-t from-black/80 to-transparent"
+            >
+              <div
+                class="text-[10px] font-bold tracking-widest uppercase text-brand"
+              >
+                Formación técnica
+              </div>
+              <div class="text-white font-display text-lg md:text-xl mt-1">
+                Programa interno de actualización profesional
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-span-6 lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-02.jpg"
+              alt="Curso de capacitación Innoven"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="col-span-6 lg:col-span-4 relative aspect-[4/3] overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-03.jpg"
+              alt="Capacitación en seguridad industrial"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="col-span-6 lg:col-span-4 relative aspect-[4/3] overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-04.jpg"
+              alt="Sesión de entrenamiento técnico Innoven"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="col-span-12 lg:col-span-4 relative aspect-[4/3] lg:aspect-auto overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-05.jpg"
+              alt="Personal técnico Innoven en formación continua"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================================================ CLIENTES -->
     <section id="clientes" class="relative py-24 md:py-32 bg-black">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="max-w-3xl mb-16">
-          <div class="section-tag mb-6">06 / Clientes</div>
+          <div class="section-tag mb-6">07 / Clientes</div>
           <h2 class="font-display display-lg text-white">
             Operadores e instituciones<br />que
             <span class="text-brand">confían</span> en nosotros.
@@ -2312,7 +2459,7 @@
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <!-- Left: pitch + info -->
           <div class="lg:col-span-5">
-            <div class="section-tag mb-6">07 / Contacto</div>
+            <div class="section-tag mb-6">08 / Contacto</div>
             <h2 class="font-display display-lg text-white mb-6">
               Hablemos de tu<br /><span class="text-brand"
                 >próximo proyecto</span
@@ -2557,6 +2704,7 @@
           <!-- Right: form -->
           <div class="lg:col-span-7">
             <form
+              id="lead-form"
               action="mailto:operaciones@innovenca.com"
               method="post"
               enctype="text/plain"
@@ -2620,17 +2768,30 @@
                   >Servicio de interés *</label
                 >
                 <select
+                  id="lead-servicio"
                   name="servicio"
                   required
                   class="w-full bg-black border border-white/10 px-4 py-3 text-white focus:border-brand focus:outline-none transition"
                 >
                   <option value="">Selecciona un servicio</option>
-                  <option>Aislamiento e Integridad Térmica</option>
-                  <option>Refrigeración y Climatización Industrial</option>
-                  <option>Ingeniería Civil e Industrial</option>
-                  <option>Empacaduras y Sellado Industrial</option>
-                  <option>Procura de materiales / equipos</option>
-                  <option>Proyecto integral / Otro</option>
+                  <option data-area="operaciones">
+                    Aislamiento e Integridad Térmica
+                  </option>
+                  <option data-area="operaciones">
+                    Refrigeración y Climatización Industrial
+                  </option>
+                  <option data-area="operaciones">
+                    Ingeniería Civil e Industrial
+                  </option>
+                  <option data-area="compras">
+                    Empacaduras y Sellado Industrial
+                  </option>
+                  <option data-area="compras">
+                    Procura de materiales / equipos
+                  </option>
+                  <option data-area="operaciones">
+                    Proyecto integral / Otro
+                  </option>
                 </select>
               </div>
               <div class="mt-6">
@@ -2750,10 +2911,25 @@
                 </svg>
               </a>
               <a
-                href="mailto:rrhh@innovenca.com?subject=Consulta%20RRHH"
+                href="https://wa.me/584126323103?text=Hola%20Innoven%2C%20escribo%20por%20una%20postulaci%C3%B3n%20laboral."
+                target="_blank"
+                rel="noopener"
                 class="inline-flex items-center gap-2 px-7 py-4 border border-white/15 hover:border-brand text-white text-sm font-bold uppercase tracking-widest transition"
               >
-                Escribirnos
+                <svg
+                  class="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20.52 3.48A11.93 11.93 0 0 0 12.04 0C5.5 0 .19 5.31.19 11.85c0 2.09.55 4.13 1.6 5.93L0 24l6.39-1.67a11.85 11.85 0 0 0 5.65 1.44h.01c6.54 0 11.85-5.31 11.85-11.85 0-3.16-1.23-6.13-3.47-8.44ZM12.04 21.5h-.01a9.65 9.65 0 0 1-4.92-1.35l-.35-.21-3.79.99 1.01-3.69-.23-.38a9.62 9.62 0 0 1-1.47-5.11c0-5.32 4.33-9.65 9.66-9.65 2.58 0 5 1.01 6.83 2.83a9.6 9.6 0 0 1 2.83 6.83c0 5.32-4.33 9.65-9.65 9.65Z"
+                  />
+                  <path
+                    d="M17.32 14.32c-.29-.14-1.7-.84-1.96-.93-.27-.1-.46-.14-.66.14-.19.29-.75.93-.92 1.13-.17.19-.34.21-.62.07-.29-.14-1.21-.45-2.31-1.42a8.69 8.69 0 0 1-1.6-1.99c-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.43 0 1.43 1.04 2.81 1.18 3 .14.19 2.05 3.13 4.96 4.39.69.3 1.23.48 1.66.62.7.22 1.33.19 1.83.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.26-.19-.55-.34Z"
+                  />
+                </svg>
+                Escribirnos por WhatsApp
               </a>
             </div>
           </div>
@@ -3047,6 +3223,20 @@
         );
         reveals.forEach((r) => io.observe(r));
       }
+
+      // Lead form: route to operaciones@ for servicios, compras@ for procura
+      const leadForm = document.getElementById("lead-form");
+      const leadServicio = document.getElementById("lead-servicio");
+      leadForm?.addEventListener("submit", () => {
+        const opt = leadServicio?.selectedOptions[0];
+        const area =
+          opt?.dataset.area === "compras" ? "compras" : "operaciones";
+        const servicio = opt?.value || opt?.text || "Solicitud";
+        const subject = encodeURIComponent(
+          `Solicitud web · ${servicio.trim()}`,
+        );
+        leadForm.action = `mailto:${area}@innovenca.com?subject=${subject}`;
+      });
     </script>
   </body>
 </html>
