@@ -653,6 +653,43 @@
       .gallery-masonry .gallery-item:hover::after {
         opacity: 1;
       }
+      /* Play icon overlay for video items (no autoplay, click opens lightbox) */
+      .gallery-masonry .gallery-item.is-video::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 56px;
+        height: 56px;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        border-radius: 999px;
+        backdrop-filter: blur(4px);
+        z-index: 2;
+        pointer-events: none;
+        transition:
+          background 0.25s ease,
+          transform 0.25s ease;
+      }
+      .gallery-masonry .gallery-item.is-video > .play-tri {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-left: 14px solid #fff;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        transform: translate(-40%, -50%);
+        z-index: 3;
+        pointer-events: none;
+      }
+      .gallery-masonry .gallery-item.is-video:hover::before {
+        background: rgba(212, 32, 42, 0.9);
+        border-color: rgba(212, 32, 42, 1);
+        transform: translate(-50%, -50%) scale(1.08);
+      }
 
       /* ============================================================
          Lightbox <dialog>
@@ -2790,58 +2827,34 @@
         </div>
         <div class="gallery-masonry" id="gallery">
           <div
-            class="gallery-item"
+            class="gallery-item is-video"
             data-lb-type="video"
             data-lb-src="media/galeria-dji-aerea.mp4"
+            data-lb-src-mobile="media/galeria-dji-aerea-mobile.mp4"
             data-lb-poster="media/galeria-dji-aerea-poster.webp"
             data-lb-alt="Vista aérea con drone de operaciones Innoven"
           >
-            <video
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              poster="media/galeria-dji-aerea-poster.webp"
-              aria-hidden="true"
-            >
-              <source
-                src="media/galeria-dji-aerea.mp4"
-                type="video/mp4"
-                media="(min-width: 768px)"
-              />
-              <source
-                src="media/galeria-dji-aerea-mobile.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <img
+              src="media/galeria-dji-aerea-poster.webp"
+              loading="lazy"
+              alt="Vista aérea con drone de operaciones Innoven"
+            />
+            <span class="play-tri" aria-hidden="true"></span>
           </div>
           <div
-            class="gallery-item"
+            class="gallery-item is-video"
             data-lb-type="video"
             data-lb-src="media/nosotros-img_1394.mp4"
+            data-lb-src-mobile="media/nosotros-img_1394-mobile.mp4"
             data-lb-poster="media/nosotros-img_1394-poster.webp"
             data-lb-alt="Operaciones Innoven en sitio"
           >
-            <video
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              poster="media/nosotros-img_1394-poster.webp"
-              aria-hidden="true"
-            >
-              <source
-                src="media/nosotros-img_1394.mp4"
-                type="video/mp4"
-                media="(min-width: 768px)"
-              />
-              <source
-                src="media/nosotros-img_1394-mobile.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <img
+              src="media/nosotros-img_1394-poster.webp"
+              loading="lazy"
+              alt="Operaciones Innoven en sitio"
+            />
+            <span class="play-tri" aria-hidden="true"></span>
           </div>
           <div
             class="gallery-item"
@@ -2856,31 +2869,19 @@
             />
           </div>
           <div
-            class="gallery-item"
+            class="gallery-item is-video"
             data-lb-type="video"
             data-lb-src="media/nosotros-img_1392.mp4"
+            data-lb-src-mobile="media/nosotros-img_1392-mobile.mp4"
             data-lb-poster="media/nosotros-img_1392-poster.webp"
             data-lb-alt="Operaciones Innoven en planta industrial"
           >
-            <video
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              poster="media/nosotros-img_1392-poster.webp"
-              aria-hidden="true"
-            >
-              <source
-                src="media/nosotros-img_1392.mp4"
-                type="video/mp4"
-                media="(min-width: 768px)"
-              />
-              <source
-                src="media/nosotros-img_1392-mobile.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <img
+              src="media/nosotros-img_1392-poster.webp"
+              loading="lazy"
+              alt="Operaciones Innoven en planta industrial"
+            />
+            <span class="play-tri" aria-hidden="true"></span>
           </div>
           <div
             class="gallery-item"
@@ -4275,7 +4276,9 @@
             v.playsInline = true;
             v.muted = false;
             v.poster = poster;
-            v.src = src;
+            const isMobile = window.matchMedia("(max-width: 767px)").matches;
+            const srcMobile = item.dataset.lbSrcMobile;
+            v.src = isMobile && srcMobile ? srcMobile : src;
             v.setAttribute("aria-label", alt);
             content.appendChild(v);
           } else {
