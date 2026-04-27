@@ -1844,11 +1844,19 @@
           <article
             class="group border border-white/10 bg-ink-900 hover:border-brand/50 transition flex flex-col"
           >
-            <div class="aspect-[4/3] overflow-hidden bg-ink-800">
+            <div
+              class="aspect-[4/3] overflow-hidden bg-ink-800 img-fade-stage relative"
+            >
               <img
                 src="media/sectores-hornos-refractarios.webp"
                 alt="Inspección y reparación de hornos industriales con ladrillos refractarios"
-                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                class="img-fade img-fade-a w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <img
+                src="media/sectores-inspeccion-horno.webp"
+                alt="Inspección interna de horno industrial con refractario"
+                class="img-fade img-fade-b w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
             </div>
@@ -2495,6 +2503,36 @@
               loading="lazy"
             />
           </div>
+          <div
+            class="col-span-6 lg:col-span-4 relative aspect-[4/3] overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-06.webp"
+              alt="Sesión de capacitación técnica del personal Innoven"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="col-span-6 lg:col-span-4 relative aspect-[4/3] overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-07.webp"
+              alt="Personal Innoven en jornada de formación"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="col-span-12 lg:col-span-4 relative aspect-[4/3] lg:aspect-auto overflow-hidden img-overlay group"
+          >
+            <img
+              src="media/training/curso-08.webp"
+              alt="Equipo Innoven en programa interno de capacitación"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -2921,6 +2959,18 @@
               src="media/demolicion-pavimento-martillo-neumatico.webp"
               loading="lazy"
               alt="Demolición de pavimento con martillo neumático"
+            />
+          </div>
+          <div
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/sectores-inspeccion-horno.webp"
+            data-lb-alt="Inspección interna de horno industrial con refractario"
+          >
+            <img
+              src="media/sectores-inspeccion-horno.webp"
+              loading="lazy"
+              alt="Inspección interna de horno industrial con refractario"
             />
           </div>
           <div
@@ -3851,6 +3901,51 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ IN MEMORIAM -->
+    <section
+      id="memoria"
+      class="relative py-20 md:py-24 bg-black border-t border-white/10 overflow-hidden"
+      aria-label="In memoriam"
+    >
+      <div
+        class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent"
+        aria-hidden="true"
+      ></div>
+      <div class="max-w-3xl mx-auto px-6 lg:px-10 text-center">
+        <div
+          class="text-[10px] font-bold tracking-[0.4em] uppercase text-brand mb-8"
+        >
+          In Memoriam
+        </div>
+        <div class="flex justify-center mb-8">
+          <div
+            class="relative w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-white/15 ring-1 ring-brand/30"
+          >
+            <img
+              src="media/memorial-javier-lopez.webp"
+              alt="Retrato de Javier López, socio y amigo de Innoven"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <h3 class="font-display text-2xl md:text-3xl text-white mb-5">
+          Javier López
+        </h3>
+        <p
+          class="text-zinc-400 leading-relaxed font-light text-base md:text-lg max-w-xl mx-auto"
+        >
+          Socio, compañero y amigo. Su criterio, su trabajo y su entrega siguen
+          siendo parte de todo lo que hacemos. Lo recordamos siempre con
+          gratitud y cariño.
+        </p>
+        <div
+          class="mx-auto mt-10 w-12 h-px bg-brand/60"
+          aria-hidden="true"
+        ></div>
       </div>
     </section>
 
