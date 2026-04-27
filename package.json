@@ -1,0 +1,14 @@
+{
+  "name": "innovenca.com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "INNOVEN C.A. corporate site (single-file static + Tailwind build).",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./dist/tailwind.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/tailwind.css --watch"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

@@ -149,6 +149,49 @@
         "inLanguage": "es-VE"
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://innovenca.com/#aislamiento-termico",
+            "name": "Aislamiento e Integridad Térmica",
+            "serviceType": "Aislamiento térmico industrial, criogénico, acústico, refractarios y Fire Proofing",
+            "provider": { "@id": "https://innovenca.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "Venezuela" },
+            "description": "Aislamiento térmico industrial (fibra de vidrio, silicato de calcio, perlita, lana mineral, fibra cerámica), criogénico (Foam Glass, poliuretano, neopreno, poliestireno), acústico, refractarios para hornos y calderas (enladrillado, vaciado, proyectado, apisonado, inyectado) y Fire Proofing — con materiales Morgan Thermal Ceramics."
+          },
+          {
+            "@type": "Service",
+            "@id": "https://innovenca.com/#refrigeracion",
+            "name": "Refrigeración y Climatización Industrial",
+            "serviceType": "HVAC industrial, A/C de confort, precisión y agua helada",
+            "provider": { "@id": "https://innovenca.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "Venezuela" },
+            "description": "Aire acondicionado de confort, precisión y agua helada para edificios corporativos, centros logísticos y operaciones críticas. Diseño y ejecución de ductería, mantenimiento preventivo y respuesta 24/7/365."
+          },
+          {
+            "@type": "Service",
+            "@id": "https://innovenca.com/#civil-industrial",
+            "name": "Ingeniería Civil e Industrial",
+            "serviceType": "Obra civil, metalmecánica, soldadura, tratamiento de superficies, electricidad e instrumentación",
+            "provider": { "@id": "https://innovenca.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "Venezuela" },
+            "description": "Construcción y obra civil, movimiento de tierra, impermeabilización y andamios; metalmecánica y estructuras con soldadura SMAW, MIG/MAG y TIG; tratamiento y protección de superficies (sandblasting, pintura industrial, epóxicos, pasivado); instalaciones eléctricas e instrumentación."
+          },
+          {
+            "@type": "Service",
+            "@id": "https://innovenca.com/#empacaduras",
+            "name": "Empacaduras y Sellado Industrial",
+            "serviceType": "Procura de empacaduras, juntas espirometálicas, sellos de grafito y juntas RTJ/FF/RF",
+            "provider": { "@id": "https://innovenca.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "Venezuela" },
+            "description": "Suministro de soluciones de sellado de alta integridad: kits de juntas para aislamiento de bridas, empacaduras espirometálicas, sellos de grafito flexible y juntas tipo D (RTJ), E (FF) y F (RF) para líneas críticas, recipientes a presión y bridas industriales."
+          }
+        ]
+      }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -158,35 +201,11 @@
       rel="stylesheet"
     />
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind (compiled, local) -->
+    <link rel="stylesheet" href="dist/tailwind.css" />
 
     <!-- Google reCAPTCHA v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              ink: {
-                950: "#000000",
-                900: "#070707",
-                800: "#101010",
-                700: "#161616",
-                600: "#1c1c1c",
-                500: "#27272a",
-                400: "#3f3f46",
-              },
-              brand: { DEFAULT: "#D4202A", dark: "#A0151D", light: "#E63946" },
-            },
-            fontFamily: {
-              sans: ["Inter", "system-ui", "sans-serif"],
-              display: ["Space Grotesk", "Inter", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
 
     <style>
       html {
@@ -519,9 +538,243 @@
       .logo-img-color {
         filter: brightness(0) invert(1);
       }
+
+      /* ============================================================
+         Scroll progress bar (top of viewport)
+         ============================================================ */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: #d4202a;
+        transform-origin: 0 50%;
+        transform: scaleX(0);
+        z-index: 60;
+        pointer-events: none;
+        will-change: transform;
+      }
+
+      /* ============================================================
+         Service cards — watermark number + diagonal corner accent
+         ============================================================ */
+      .service-card {
+        position: relative;
+        transition:
+          border-color 0.4s ease,
+          transform 0.4s ease;
+      }
+      .service-card:hover {
+        border-color: rgba(212, 32, 42, 0.45);
+        transform: translateY(-2px);
+      }
+      .service-card .svc-number {
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: clamp(5rem, 9vw, 9rem);
+        line-height: 0.85;
+        color: rgba(255, 255, 255, 0.04);
+        pointer-events: none;
+        user-select: none;
+        transition: color 0.5s ease;
+        z-index: 1;
+      }
+      .service-card:hover .svc-number {
+        color: rgba(212, 32, 42, 0.18);
+      }
+      .service-card .svc-corner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 3px;
+        background: #d4202a;
+        transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        z-index: 3;
+      }
+      .service-card:hover .svc-corner {
+        width: 96px;
+      }
+      .service-card > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ============================================================
+         Gallery — masonry via CSS columns + lightbox trigger
+         ============================================================ */
+      .gallery-masonry {
+        column-count: 2;
+        column-gap: 0.5rem;
+      }
+      @media (min-width: 768px) {
+        .gallery-masonry {
+          column-count: 3;
+        }
+      }
+      @media (min-width: 1024px) {
+        .gallery-masonry {
+          column-count: 4;
+        }
+      }
+      .gallery-masonry .gallery-item {
+        break-inside: avoid;
+        margin-bottom: 0.5rem;
+        position: relative;
+        overflow: hidden;
+        cursor: zoom-in;
+        background: #0a0a0a;
+      }
+      .gallery-masonry .gallery-item img,
+      .gallery-masonry .gallery-item video {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      .gallery-masonry .gallery-item:hover img,
+      .gallery-masonry .gallery-item:hover video {
+        transform: scale(1.05);
+      }
+      .gallery-masonry .gallery-item::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      .gallery-masonry .gallery-item:hover::after {
+        opacity: 1;
+      }
+
+      /* ============================================================
+         Lightbox <dialog>
+         ============================================================ */
+      dialog#lightbox {
+        padding: 0;
+        margin: 0;
+        max-width: 100vw;
+        max-height: 100vh;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.96);
+        border: 0;
+        color: #fff;
+      }
+      dialog#lightbox::backdrop {
+        background: rgba(0, 0, 0, 0.92);
+      }
+      dialog#lightbox[open] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lb-stage {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 2rem;
+      }
+      .lb-media {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        user-select: none;
+      }
+      .lb-btn {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #fff;
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .lb-btn:hover {
+        background: #d4202a;
+        border-color: #d4202a;
+      }
+      .lb-prev {
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .lb-next {
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .lb-close {
+        top: 1rem;
+        right: 1rem;
+      }
+      .lb-counter {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      @media (max-width: 640px) {
+        .lb-stage {
+          padding: 3rem 0.5rem;
+        }
+        .lb-prev {
+          left: 0.5rem;
+        }
+        .lb-next {
+          right: 0.5rem;
+        }
+      }
+
+      /* ============================================================
+         Reduced motion
+         ============================================================ */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .scroll-progress {
+          display: none;
+        }
+        .service-card,
+        .service-card .svc-number,
+        .service-card .svc-corner,
+        .gallery-masonry .gallery-item img,
+        .gallery-masonry .gallery-item video,
+        .gallery-masonry .gallery-item::after,
+        .lb-btn {
+          transition: none !important;
+        }
+      }
     </style>
   </head>
   <body class="bg-black text-white">
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
     <!-- ============================================================ NAV -->
     <header
       id="nav"
@@ -537,7 +790,7 @@
             aria-label="INNOVEN inicio"
           >
             <img
-              src="media/innoven-logo-onblack.png"
+              src="media/innoven-logo-onblack.webp"
               alt="Innoven"
               class="h-11 md:h-14 w-auto group-hover:opacity-80 transition"
             />
@@ -613,7 +866,7 @@
         class="h-20 flex items-center justify-between px-6 border-b border-white/5"
       >
         <img
-          src="media/innoven-logo-onblack.png"
+          src="media/innoven-logo-onblack.webp"
           alt="Innoven"
           class="h-8 w-auto"
         />
@@ -696,7 +949,7 @@
         muted
         loop
         playsinline
-        poster="media/hero-poster.jpg"
+        poster="media/hero-poster.webp"
       >
         <source
           src="media/hero-desktop.mp4"
@@ -726,7 +979,13 @@
             </div>
           </div>
           <div class="bg-black/80 backdrop-blur-sm p-6">
-            <div class="font-display text-3xl md:text-4xl font-bold text-white">
+            <div
+              class="font-display text-3xl md:text-4xl font-bold text-white stat-num"
+              data-counter
+              data-target="20"
+              data-prefix="+"
+              data-duration="1600"
+            >
               +20
             </div>
             <div class="mt-2 text-xs uppercase tracking-widest text-zinc-400">
@@ -734,7 +993,12 @@
             </div>
           </div>
           <div class="bg-black/80 backdrop-blur-sm p-6">
-            <div class="font-display text-3xl md:text-4xl font-bold text-white">
+            <div
+              class="font-display text-3xl md:text-4xl font-bold text-white stat-num"
+              data-counter
+              data-target="4"
+              data-duration="1200"
+            >
               4
             </div>
             <div class="mt-2 text-xs uppercase tracking-widest text-zinc-400">
@@ -863,118 +1127,118 @@
             <div class="marquee-track items-center">
               <!-- repeat 2x for seamless loop -->
               <img
-                src="media/clients/cementos-catatumbo.png"
+                src="media/clients/cementos-catatumbo.webp"
                 alt="Cementos Catatumbo"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/unicef.png"
+                src="media/clients/unicef.webp"
                 alt="UNICEF"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/acnur.png"
+                src="media/clients/acnur.webp"
                 alt="ACNUR"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/save-the-children.png"
+                src="media/clients/save-the-children.webp"
                 alt="Save the Children"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/north-american-energy.png"
+                src="media/clients/north-american-energy.webp"
                 alt="North American Energy"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/global-group-shipping.png"
+                src="media/clients/global-group-shipping.webp"
                 alt="Global Group Shipping"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/ehk-plus.png"
+                src="media/clients/ehk-plus.webp"
                 alt="EHK+"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/mm-service.png"
+                src="media/clients/mm-service.webp"
                 alt="MM Service"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/inmarvenco.png"
+                src="media/clients/inmarvenco.webp"
                 alt="Inmarvenco"
                 class="marquee-logo"
                 loading="lazy"
               />
               <!-- duplicate -->
               <img
-                src="media/clients/cementos-catatumbo.png"
+                src="media/clients/cementos-catatumbo.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/unicef.png"
+                src="media/clients/unicef.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/acnur.png"
+                src="media/clients/acnur.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/save-the-children.png"
+                src="media/clients/save-the-children.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/north-american-energy.png"
+                src="media/clients/north-american-energy.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/global-group-shipping.png"
+                src="media/clients/global-group-shipping.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/ehk-plus.png"
+                src="media/clients/ehk-plus.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/mm-service.png"
+                src="media/clients/mm-service.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
                 loading="lazy"
               />
               <img
-                src="media/clients/inmarvenco.png"
+                src="media/clients/inmarvenco.webp"
                 alt=""
                 aria-hidden="true"
                 class="marquee-logo"
@@ -1005,7 +1269,7 @@
               class="relative overflow-hidden img-overlay bg-ink-900 max-w-md mx-auto lg:mx-0"
             >
               <img
-                src="media/nosotros-cecat.jpg"
+                src="media/nosotros-cecat.webp"
                 alt="Equipo Innoven en visita técnica con cliente en cantera de Cementos Catatumbo"
                 class="w-full h-auto block"
                 loading="lazy"
@@ -1099,12 +1363,14 @@
         <article
           class="service-card group border border-white/10 bg-ink-900 mb-6"
         >
+          <span class="svc-number" aria-hidden="true">01</span>
+          <span class="svc-corner" aria-hidden="true"></span>
           <div class="grid lg:grid-cols-12 gap-0">
             <div
               class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden"
             >
               <img
-                src="media/services/aislamiento.jpg"
+                src="media/services/aislamiento.webp"
                 alt="Aislamiento térmico industrial en planta industrial"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -1172,6 +1438,8 @@
         <article
           class="service-card group border border-white/10 bg-ink-900 mb-6"
         >
+          <span class="svc-number" aria-hidden="true">02</span>
+          <span class="svc-corner" aria-hidden="true"></span>
           <div class="grid lg:grid-cols-12 gap-0">
             <div
               class="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1"
@@ -1226,13 +1494,13 @@
               class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden order-1 lg:order-2 img-fade-stage"
             >
               <img
-                src="media/img-15.jpg"
+                src="media/mantenimiento-planta-industrial.webp"
                 alt="Mantenimiento de equipos de refrigeración en planta industrial"
                 class="img-fade img-fade-a w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
               <img
-                src="media/img-16.jpg"
+                src="media/refrigeracion-industrial-equipos.webp"
                 alt="Servicio 24/7 sobre unidades de aire acondicionado industrial"
                 class="img-fade img-fade-b w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -1245,12 +1513,14 @@
         <article
           class="service-card group border border-white/10 bg-ink-900 mb-6"
         >
+          <span class="svc-number" aria-hidden="true">03</span>
+          <span class="svc-corner" aria-hidden="true"></span>
           <div class="grid lg:grid-cols-12 gap-0">
             <div
               class="lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden"
             >
               <img
-                src="media/services/civil.jpg"
+                src="media/services/civil.webp"
                 alt="Equipo Innoven en obra civil e industrial"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -1327,6 +1597,8 @@
 
         <!-- Service 4: Empacaduras -->
         <article class="service-card group border border-white/10 bg-ink-900">
+          <span class="svc-number" aria-hidden="true">04</span>
+          <span class="svc-corner" aria-hidden="true"></span>
           <div class="grid lg:grid-cols-12 gap-0">
             <div
               class="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1"
@@ -1375,7 +1647,7 @@
                 loop
                 playsinline
                 preload="metadata"
-                poster="media/servicio-empacaduras-poster.jpg"
+                poster="media/servicio-empacaduras-poster.webp"
                 aria-hidden="true"
               >
                 <source
@@ -1407,7 +1679,7 @@
           loop
           playsinline
           preload="metadata"
-          poster="media/morgan-bg-poster.jpg"
+          poster="media/morgan-bg-poster.webp"
           aria-hidden="true"
         >
           <source
@@ -1530,7 +1802,7 @@
           >
             <div class="aspect-[4/3] overflow-hidden bg-ink-800">
               <img
-                src="media/sectores-aislamiento-torre.jpg"
+                src="media/sectores-aislamiento-torre.webp"
                 alt="Reparación de aislamiento térmico en torre industrial con andamio completo"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -1568,7 +1840,7 @@
           >
             <div class="aspect-[4/3] overflow-hidden bg-ink-800">
               <img
-                src="media/sectores-hornos-refractarios.jpg"
+                src="media/sectores-hornos-refractarios.webp"
                 alt="Inspección y reparación de hornos industriales con ladrillos refractarios"
                 class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -1605,7 +1877,7 @@
           >
             <div class="aspect-[4/3] overflow-hidden bg-ink-800">
               <img
-                src="media/img-16.jpg"
+                src="media/refrigeracion-industrial-equipos.webp"
                 alt="Mantenimiento de equipos de refrigeración y climatización"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -2159,7 +2431,7 @@
             class="col-span-12 lg:col-span-7 relative aspect-[4/3] lg:aspect-[16/11] overflow-hidden img-overlay group"
           >
             <img
-              src="media/training/curso-01.jpg"
+              src="media/training/curso-01.webp"
               alt="Personal Innoven en sesión de capacitación técnica"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
@@ -2181,7 +2453,7 @@
             class="col-span-6 lg:col-span-5 relative aspect-[4/3] lg:aspect-auto overflow-hidden img-overlay group"
           >
             <img
-              src="media/training/curso-02.jpg"
+              src="media/training/curso-02.webp"
               alt="Curso de capacitación Innoven"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
@@ -2191,7 +2463,7 @@
             class="col-span-6 lg:col-span-4 relative aspect-[4/3] overflow-hidden img-overlay group"
           >
             <img
-              src="media/training/curso-03.jpg"
+              src="media/training/curso-03.webp"
               alt="Capacitación en seguridad industrial"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
@@ -2201,7 +2473,7 @@
             class="col-span-6 lg:col-span-4 relative aspect-[4/3] overflow-hidden img-overlay group"
           >
             <img
-              src="media/training/curso-04.jpg"
+              src="media/training/curso-04.webp"
               alt="Sesión de entrenamiento técnico Innoven"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
@@ -2211,7 +2483,7 @@
             class="col-span-12 lg:col-span-4 relative aspect-[4/3] lg:aspect-auto overflow-hidden img-overlay group"
           >
             <img
-              src="media/training/curso-05.jpg"
+              src="media/training/curso-05.webp"
               alt="Personal técnico Innoven en formación continua"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
@@ -2245,7 +2517,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/cementos-catatumbo.png"
+                src="media/clients/cementos-catatumbo.webp"
                 alt="Cementos Catatumbo"
                 class="client-logo"
                 loading="lazy"
@@ -2256,7 +2528,7 @@
             <div class="client-tag">Energía</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/north-american-energy.png"
+                src="media/clients/north-american-energy.webp"
                 alt="North American Energy"
                 class="client-logo"
                 loading="lazy"
@@ -2267,7 +2539,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/mc-industrias.png"
+                src="media/clients/mc-industrias.webp"
                 alt="MC Industrias"
                 class="client-logo"
                 loading="lazy"
@@ -2278,7 +2550,7 @@
             <div class="client-tag">Naviero</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/global-group-shipping.png"
+                src="media/clients/global-group-shipping.webp"
                 alt="Global Group Shipping"
                 class="client-logo"
                 loading="lazy"
@@ -2290,7 +2562,7 @@
             <div class="client-tag">Organismo Internacional</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/unicef.png"
+                src="media/clients/unicef.webp"
                 alt="UNICEF"
                 class="client-logo"
                 loading="lazy"
@@ -2301,7 +2573,7 @@
             <div class="client-tag">Organismo Internacional</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/acnur.png"
+                src="media/clients/acnur.webp"
                 alt="ACNUR"
                 class="client-logo"
                 loading="lazy"
@@ -2312,7 +2584,7 @@
             <div class="client-tag">ONG Internacional</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/save-the-children.png"
+                src="media/clients/save-the-children.webp"
                 alt="Save the Children"
                 class="client-logo"
                 loading="lazy"
@@ -2323,7 +2595,7 @@
             <div class="client-tag">Asociación Civil</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/construyendo-futuro.png"
+                src="media/clients/construyendo-futuro.webp"
                 alt="Construyendo Futuro"
                 class="client-logo"
                 loading="lazy"
@@ -2334,7 +2606,7 @@
             <div class="client-tag">Fundación</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/fundana.png"
+                src="media/clients/fundana.webp"
                 alt="Fundana"
                 class="client-logo"
                 loading="lazy"
@@ -2346,7 +2618,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/ehk-plus.png"
+                src="media/clients/ehk-plus.webp"
                 alt="EHK+"
                 class="client-logo"
                 loading="lazy"
@@ -2357,7 +2629,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/mm-service.png"
+                src="media/clients/mm-service.webp"
                 alt="MM Service"
                 class="client-logo"
                 loading="lazy"
@@ -2368,7 +2640,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/inmarvenco.png"
+                src="media/clients/inmarvenco.webp"
                 alt="Inmarvenco"
                 class="client-logo"
                 loading="lazy"
@@ -2379,7 +2651,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/turbo-pre.png"
+                src="media/clients/turbo-pre.webp"
                 alt="TurboPre"
                 class="client-logo"
                 loading="lazy"
@@ -2390,7 +2662,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/zic.png"
+                src="media/clients/zic.webp"
                 alt="ZIC"
                 class="client-logo"
                 loading="lazy"
@@ -2401,7 +2673,7 @@
             <div class="client-tag">Industrial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/apex.png"
+                src="media/clients/apex.webp"
                 alt="Apex"
                 class="client-logo"
                 loading="lazy"
@@ -2413,7 +2685,7 @@
             <div class="client-tag">Construcción</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/liberty-constructions.png"
+                src="media/clients/liberty-constructions.webp"
                 alt="Liberty Constructions"
                 class="client-logo"
                 loading="lazy"
@@ -2424,7 +2696,7 @@
             <div class="client-tag">Residencial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/indio-mara.png"
+                src="media/clients/indio-mara.webp"
                 alt="Promociones Indio Mara"
                 class="client-logo"
                 loading="lazy"
@@ -2435,7 +2707,7 @@
             <div class="client-tag">Inmobiliario</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/valores-inmuebles.png"
+                src="media/clients/valores-inmuebles.webp"
                 alt="Valores e Inmuebles"
                 class="client-logo"
                 loading="lazy"
@@ -2446,7 +2718,7 @@
             <div class="client-tag">Residencial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/grand-europa.png"
+                src="media/clients/grand-europa.webp"
                 alt="Grand Europa"
                 class="client-logo"
                 loading="lazy"
@@ -2457,7 +2729,7 @@
             <div class="client-tag">Residencial</div>
             <div class="client-logo-wrap">
               <img
-                src="media/clients/moschella.png"
+                src="media/clients/moschella.webp"
                 alt="Edificio Moschella"
                 class="client-logo"
                 loading="lazy"
@@ -2479,18 +2751,21 @@
             >.
           </h2>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <div class="gallery-masonry" id="gallery">
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="video"
+            data-lb-src="media/galeria-dji-aerea.mp4"
+            data-lb-poster="media/galeria-dji-aerea-poster.webp"
+            data-lb-alt="Vista aérea con drone de operaciones Innoven"
           >
             <video
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               autoplay
               muted
               loop
               playsinline
               preload="metadata"
-              poster="media/galeria-dji-aerea-poster.jpg"
+              poster="media/galeria-dji-aerea-poster.webp"
               aria-hidden="true"
             >
               <source
@@ -2505,16 +2780,19 @@
             </video>
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="video"
+            data-lb-src="media/nosotros-img_1394.mp4"
+            data-lb-poster="media/nosotros-img_1394-poster.webp"
+            data-lb-alt="Operaciones Innoven en sitio"
           >
             <video
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               autoplay
               muted
               loop
               playsinline
               preload="metadata"
-              poster="media/nosotros-img_1394-poster.jpg"
+              poster="media/nosotros-img_1394-poster.webp"
               aria-hidden="true"
             >
               <source
@@ -2529,16 +2807,19 @@
             </video>
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="video"
+            data-lb-src="media/nosotros-img_1392.mp4"
+            data-lb-poster="media/nosotros-img_1392-poster.webp"
+            data-lb-alt="Operaciones Innoven en planta industrial"
           >
             <video
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               autoplay
               muted
               loop
               playsinline
               preload="metadata"
-              poster="media/nosotros-img_1392-poster.jpg"
+              poster="media/nosotros-img_1392-poster.webp"
               aria-hidden="true"
             >
               <source
@@ -2553,196 +2834,302 @@
             </video>
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/flota-vehiculos-jac-innoven.webp"
+            data-lb-alt="Flota Innoven de vehículos JAC frente a sede operativa"
           >
             <img
-              src="media/img-27.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/flota-vehiculos-jac-innoven.webp"
               loading="lazy"
               alt="Flota Innoven de vehículos JAC frente a sede operativa"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/compactador-vibratorio-obra-civil.webp"
+            data-lb-alt="Compactador vibratorio en obra civil industrial"
           >
             <img
-              src="media/img-21.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/compactador-vibratorio-obra-civil.webp"
               loading="lazy"
               alt="Compactador vibratorio en obra civil industrial"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/armado-parrilla-acero-estructural.webp"
+            data-lb-alt="Armado de parrilla de acero estructural en sitio"
           >
             <img
-              src="media/img-22.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/armado-parrilla-acero-estructural.webp"
               loading="lazy"
               alt="Armado de parrilla de acero estructural en sitio"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/demolicion-pavimento-martillo-neumatico.webp"
+            data-lb-alt="Demolición de pavimento con martillo neumático"
           >
             <img
-              src="media/img-23.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/demolicion-pavimento-martillo-neumatico.webp"
               loading="lazy"
               alt="Demolición de pavimento con martillo neumático"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/compactacion-terreno-planta-industrial.webp"
+            data-lb-alt="Compactación de terreno en planta industrial"
           >
             <img
-              src="media/img-24.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/compactacion-terreno-planta-industrial.webp"
               loading="lazy"
               alt="Compactación de terreno en planta industrial"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/rodillo-compactador-preparacion-terreno.webp"
+            data-lb-alt="Rodillo compactador en preparación de terreno"
           >
             <img
-              src="media/img-25.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/rodillo-compactador-preparacion-terreno.webp"
               loading="lazy"
               alt="Rodillo compactador en preparación de terreno"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/excavacion-retroexcavadora-john-deere.webp"
+            data-lb-alt="Excavación con retroexcavadora John Deere"
           >
             <img
-              src="media/img-26.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/excavacion-retroexcavadora-john-deere.webp"
               loading="lazy"
               alt="Excavación con retroexcavadora John Deere"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/edificio-residencial-maracaibo.webp"
+            data-lb-alt="Edificación civil terminada en zona urbana"
           >
             <img
-              src="media/img-01.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/edificio-residencial-maracaibo.webp"
               loading="lazy"
               alt="Edificación civil terminada en zona urbana"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/cementera-mantenimiento-civil.webp"
+            data-lb-alt="Trabajos civiles en planta de cemento"
           >
             <img
-              src="media/img-04.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/cementera-mantenimiento-civil.webp"
               loading="lazy"
               alt="Trabajos civiles en planta de cemento"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/soldadura-industrial-nocturna.webp"
+            data-lb-alt="Soldadura industrial nocturna"
           >
             <img
-              src="media/img-06.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/soldadura-industrial-nocturna.webp"
               loading="lazy"
               alt="Soldadura industrial nocturna"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/mantenimiento-planta-industrial.webp"
+            data-lb-alt="Mantenimiento en planta industrial"
           >
             <img
-              src="media/img-15.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/mantenimiento-planta-industrial.webp"
               loading="lazy"
               alt="Mantenimiento en planta industrial"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/planta-cemento-trabajos.webp"
+            data-lb-alt="Trabajos en planta de cemento"
           >
             <img
-              src="media/img-02.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/planta-cemento-trabajos.webp"
               loading="lazy"
               alt="Trabajos en planta de cemento"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/tablero-electrico-industrial.webp"
+            data-lb-alt="Tablero eléctrico industrial"
           >
             <img
-              src="media/img-11.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/tablero-electrico-industrial.webp"
               loading="lazy"
               alt="Tablero eléctrico industrial"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/refrigeracion-industrial-equipos.webp"
+            data-lb-alt="Equipos de refrigeración industrial"
           >
             <img
-              src="media/img-16.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/refrigeracion-industrial-equipos.webp"
               loading="lazy"
               alt="Equipos de refrigeración industrial"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/mantenimiento-equipos-liebert.webp"
+            data-lb-alt="Mantenimiento Liebert"
           >
             <img
-              src="media/img-09.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/mantenimiento-equipos-liebert.webp"
               loading="lazy"
               alt="Mantenimiento Liebert"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/soldadura-careta-protectora.webp"
+            data-lb-alt="Soldadura con careta protectora"
           >
             <img
-              src="media/img-07.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/soldadura-careta-protectora.webp"
               loading="lazy"
               alt="Soldadura con careta protectora"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/instrumentacion-electrica.webp"
+            data-lb-alt="Instrumentación eléctrica"
           >
             <img
-              src="media/img-17.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/instrumentacion-electrica.webp"
               loading="lazy"
               alt="Instrumentación eléctrica"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/diagnostico-electrico-industrial.webp"
+            data-lb-alt="Diagnóstico eléctrico"
           >
             <img
-              src="media/img-12.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/diagnostico-electrico-industrial.webp"
               loading="lazy"
               alt="Diagnóstico eléctrico"
             />
           </div>
           <div
-            class="aspect-square overflow-hidden group cursor-pointer relative"
+            class="gallery-item"
+            data-lb-type="image"
+            data-lb-src="media/mantenimiento-hvac-industrial.webp"
+            data-lb-alt="Mantenimiento de equipos HVAC"
           >
             <img
-              src="media/img-08.jpg"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="media/mantenimiento-hvac-industrial.webp"
               loading="lazy"
               alt="Mantenimiento de equipos HVAC"
             />
           </div>
         </div>
+
+        <!-- Lightbox dialog -->
+        <dialog id="lightbox" aria-label="Galería ampliada">
+          <div class="lb-stage">
+            <div id="lb-content" class="lb-media-wrap"></div>
+            <button
+              type="button"
+              class="lb-btn lb-prev"
+              id="lb-prev"
+              aria-label="Anterior"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="lb-btn lb-next"
+              id="lb-next"
+              aria-label="Siguiente"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="lb-btn lb-close"
+              id="lb-close"
+              aria-label="Cerrar"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <div class="lb-counter" id="lb-counter">1 / 22</div>
+          </div>
+        </dialog>
       </div>
     </section>
 
@@ -2760,7 +3147,7 @@
           loop
           playsinline
           preload="metadata"
-          poster="media/contacto-bg-poster.jpg"
+          poster="media/contacto-bg-poster.webp"
           aria-hidden="true"
         >
           <source
@@ -2783,7 +3170,7 @@
               class="relative aspect-[4/3] overflow-hidden border border-white/10 mb-10"
             >
               <img
-                src="media/contacto-hero.jpg"
+                src="media/contacto-hero.webp"
                 alt="Operaciones Innoven en planta industrial"
                 class="w-full h-full object-cover"
                 loading="lazy"
@@ -3335,7 +3722,7 @@
         <div class="grid lg:grid-cols-12 gap-10 mb-12">
           <div class="lg:col-span-4">
             <img
-              src="media/innoven-logo-onblack.png"
+              src="media/innoven-logo-onblack.webp"
               alt="Innoven Suministros y Servicios"
               class="h-10 w-auto mb-6"
             />
@@ -3512,7 +3899,7 @@
           >
             <span class="uppercase tracking-widest">Web developed by</span>
             <img
-              src="media/1bite-logo.png"
+              src="media/1bite-logo.webp"
               alt="1bite Studio"
               class="h-5 w-auto logo-img-color opacity-70 group-hover:opacity-100 transition"
             />
@@ -3543,12 +3930,34 @@
           ),
         );
 
-      // Scroll-aware nav
+      // Scroll-aware nav + scroll progress bar (rAF throttled)
       const nav = document.getElementById("nav");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 40) nav.classList.add("shadow-2xl");
-        else nav.classList.remove("shadow-2xl");
-      });
+      const scrollBar = document.getElementById("scroll-progress");
+      let scrollTicking = false;
+      function onScroll() {
+        const y = window.scrollY;
+        if (nav) {
+          if (y > 40) nav.classList.add("shadow-2xl");
+          else nav.classList.remove("shadow-2xl");
+        }
+        if (scrollBar) {
+          const h = document.documentElement.scrollHeight - window.innerHeight;
+          const p = h > 0 ? Math.min(y / h, 1) : 0;
+          scrollBar.style.transform = `scaleX(${p})`;
+        }
+        scrollTicking = false;
+      }
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!scrollTicking) {
+            requestAnimationFrame(onScroll);
+            scrollTicking = true;
+          }
+        },
+        { passive: true },
+      );
+      onScroll();
 
       // Year
       document.getElementById("year").textContent = new Date().getFullYear();
@@ -3566,6 +3975,184 @@
         );
         reveals.forEach((r) => io.observe(r));
       }
+
+      // Number counter animation (data-counter, data-target, data-prefix, data-suffix, data-duration)
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const counters = document.querySelectorAll("[data-counter]");
+      if (counters.length) {
+        const formatNum = (el, value) => {
+          const prefix = el.dataset.prefix || "";
+          const suffix = el.dataset.suffix || "";
+          el.textContent = `${prefix}${Math.round(value)}${suffix}`;
+        };
+        const animateCounter = (el) => {
+          const target = parseFloat(el.dataset.target) || 0;
+          if (reduceMotion) {
+            formatNum(el, target);
+            return;
+          }
+          const duration = parseInt(el.dataset.duration, 10) || 1400;
+          const start = performance.now();
+          const ease = (t) => 1 - Math.pow(1 - t, 3);
+          const tick = (now) => {
+            const t = Math.min((now - start) / duration, 1);
+            formatNum(el, target * ease(t));
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        };
+        const cIo = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting && !e.target.dataset.counted) {
+                e.target.dataset.counted = "1";
+                animateCounter(e.target);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+        counters.forEach((c) => {
+          formatNum(c, 0);
+          cIo.observe(c);
+        });
+      }
+
+      // Gallery lightbox
+      (function () {
+        const dialog = document.getElementById("lightbox");
+        const content = document.getElementById("lb-content");
+        const counter = document.getElementById("lb-counter");
+        const btnPrev = document.getElementById("lb-prev");
+        const btnNext = document.getElementById("lb-next");
+        const btnClose = document.getElementById("lb-close");
+        const items = Array.from(document.querySelectorAll(".gallery-item"));
+        if (!dialog || !content || !items.length) return;
+
+        let index = 0;
+
+        function render() {
+          const item = items[index];
+          const type = item.dataset.lbType;
+          const src = item.dataset.lbSrc;
+          const alt = item.dataset.lbAlt || "";
+          const poster = item.dataset.lbPoster || "";
+          content.replaceChildren();
+          if (type === "video") {
+            const v = document.createElement("video");
+            v.className = "lb-media";
+            v.controls = true;
+            v.autoplay = true;
+            v.loop = true;
+            v.playsInline = true;
+            v.muted = false;
+            v.poster = poster;
+            v.src = src;
+            v.setAttribute("aria-label", alt);
+            content.appendChild(v);
+          } else {
+            const img = document.createElement("img");
+            img.className = "lb-media";
+            img.src = src;
+            img.alt = alt;
+            img.decoding = "async";
+            content.appendChild(img);
+          }
+          counter.textContent = `${index + 1} / ${items.length}`;
+          [index - 1, index + 1].forEach((i) => {
+            const n = items[(i + items.length) % items.length];
+            if (n && n.dataset.lbType === "image") {
+              const pre = new Image();
+              pre.src = n.dataset.lbSrc;
+            }
+          });
+        }
+
+        function open(i) {
+          index = (i + items.length) % items.length;
+          render();
+          if (typeof dialog.showModal === "function") dialog.showModal();
+          else dialog.setAttribute("open", "");
+          document.body.style.overflow = "hidden";
+        }
+
+        function close() {
+          if (typeof dialog.close === "function") dialog.close();
+          else dialog.removeAttribute("open");
+          content.replaceChildren();
+          document.body.style.overflow = "";
+        }
+
+        function next() {
+          index = (index + 1) % items.length;
+          render();
+        }
+        function prev() {
+          index = (index - 1 + items.length) % items.length;
+          render();
+        }
+
+        items.forEach((it, i) => {
+          it.addEventListener("click", () => open(i));
+          it.setAttribute("role", "button");
+          it.setAttribute("tabindex", "0");
+          it.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              open(i);
+            }
+          });
+        });
+
+        btnPrev?.addEventListener("click", prev);
+        btnNext?.addEventListener("click", next);
+        btnClose?.addEventListener("click", close);
+
+        dialog.addEventListener("click", (e) => {
+          if (e.target === dialog || e.target.classList.contains("lb-stage")) {
+            close();
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (!dialog.open) return;
+          if (e.key === "Escape") close();
+          if (e.key === "ArrowRight") next();
+          if (e.key === "ArrowLeft") prev();
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        dialog.addEventListener(
+          "touchstart",
+          (e) => {
+            const t = e.changedTouches[0];
+            touchStartX = t.clientX;
+            touchStartY = t.clientY;
+          },
+          { passive: true },
+        );
+        dialog.addEventListener(
+          "touchend",
+          (e) => {
+            const t = e.changedTouches[0];
+            const dx = t.clientX - touchStartX;
+            const dy = t.clientY - touchStartY;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+              if (dx < 0) next();
+              else prev();
+            }
+          },
+          { passive: true },
+        );
+
+        dialog.addEventListener("close", () => {
+          content.replaceChildren();
+          document.body.style.overflow = "";
+        });
+      })();
 
       // Lead form: route to operaciones@ for servicios, compras@ for procura
       const leadForm = document.getElementById("lead-form");
