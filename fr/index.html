@@ -23,7 +23,7 @@
     <meta name="theme-color" content="#000000" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="canonical" href="https://innovenca.com/fr/" />
-<!-- BEGIN HREFLANG -->
+    <!-- BEGIN HREFLANG -->
     <link rel="alternate" hreflang="es" href="https://innovenca.com/" />
     <link rel="alternate" hreflang="en" href="https://innovenca.com/en/" />
     <link rel="alternate" hreflang="fr" href="https://innovenca.com/fr/" />
@@ -217,6 +217,7 @@
     <style>
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 88px;
       }
       body {
         background: #000;
@@ -530,7 +531,7 @@
       }
 
       /* Mobile menu */
-/* BEGIN LANG_SWITCHER_CSS */
+      /* BEGIN LANG_SWITCHER_CSS */
       .lang-switcher { position: relative; display: inline-flex; }
       .lang-btn { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem .8rem; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.85); background: transparent; border: 1px solid rgba(255,255,255,.18); border-radius: 2px; cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease; }
       .lang-btn:hover { color: #fff; border-color: rgba(212,32,42,.7); background: rgba(212,32,42,.08); }
@@ -862,7 +863,7 @@
             />
           </a>
           <nav
-            class="hidden lg:flex items-center gap-9 text-sm font-medium text-zinc-300"
+            class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-zinc-300"
           >
             <a href="#nosotros" class="hover:text-white transition">À Propos</a>
             <a href="#servicios" class="hover:text-white transition"
@@ -879,10 +880,10 @@
             >
             <a href="#contacto" class="hover:text-white transition">Contact</a>
           </nav>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
             <a
               href="#contacto"
-              class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition rounded-sm"
+              class="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition rounded-sm"
             >
               Demander un Devis
               <svg
@@ -974,7 +975,7 @@
       <nav
         class="px-6 py-10 flex flex-col gap-2 text-2xl font-display font-semibold"
       >
-<!-- BEGIN LANG_SWITCHER_MOBILE -->
+        <!-- BEGIN LANG_SWITCHER_MOBILE -->
 <div class="lang-mobile-row">
       <a href="/" class="lang-mlink" data-lang="es"><span class="lang-abbr">ES</span> Español</a>
       <a href="/en/" class="lang-mlink" data-lang="en"><span class="lang-abbr">EN</span> English</a>
@@ -1159,7 +1160,7 @@
           <div class="lg:col-span-4 flex flex-col gap-3">
             <a
               href="#servicios"
-              class="inline-flex items-center justify-between gap-2 px-7 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-semibold tracking-wide uppercase transition rounded-sm"
             >
               Voir les services
               <svg
@@ -4196,7 +4197,7 @@
 
     <script>
       // Mobile menu
-// BEGIN LANG_INIT
+      // BEGIN LANG_INIT
       (function() {
         var STORAGE_KEY = 'innoven-lang';
         var supported = ['es', 'en', 'fr', 'it'];
