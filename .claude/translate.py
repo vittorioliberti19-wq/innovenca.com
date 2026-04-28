@@ -39,14 +39,16 @@ CSS_S, CSS_E = "/* BEGIN LANG_SWITCHER_CSS */", "/* END LANG_SWITCHER_CSS */"
 
 
 # -------------------------------------------------------------- helpers
-def replace_or_insert(text, ms, me, content, anchor):
-    """If markers exist, replace block. Else insert content after anchor."""
+def replace_or_insert(text, ms, me, content, anchor, position="after"):
+    """If markers exist, replace block. Else insert content before/after anchor."""
     pat = re.compile(re.escape(ms) + r"[\s\S]*?" + re.escape(me))
     block = f"{ms}\n{content}\n{me}"
     if pat.search(text):
         return pat.sub(block.replace("\\", "\\\\"), text)
     if anchor not in text:
         raise SystemExit(f"Anchor not found: {anchor[:120]}")
+    if position == "before":
+        return text.replace(anchor, block + "\n            " + anchor, 1)
     return text.replace(anchor, anchor + "\n" + block, 1)
 
 
@@ -1790,9 +1792,14 @@ def inject_structural(text, active_lang):
         text, HREFLANG_S, HREFLANG_E, HREFLANG_BLOCK, HREFLANG_ANCHOR
     )
 
-    # 3. desktop switcher (before #menu-btn)
+    # 3. desktop switcher (before #menu-btn — must be position="before" so we don't break the button tag)
     text = replace_or_insert(
-        text, SW_S, SW_E, desktop_switcher(active_lang), DESKTOP_SWITCHER_ANCHOR
+        text,
+        SW_S,
+        SW_E,
+        desktop_switcher(active_lang),
+        DESKTOP_SWITCHER_ANCHOR,
+        position="before",
     )
 
     # 4. mobile switcher (after mobile <nav> opens)
