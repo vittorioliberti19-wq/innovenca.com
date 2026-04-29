@@ -29,7 +29,7 @@
     <link rel="alternate" hreflang="fr" href="https://innovenca.com/fr/" />
     <link rel="alternate" hreflang="it" href="https://innovenca.com/it/" />
     <link rel="alternate" hreflang="x-default" href="https://innovenca.com/" />
-<!-- END HREFLANG -->
+    <!-- END HREFLANG -->
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="INNOVEN C.A." />
@@ -408,7 +408,10 @@
         object-fit: contain;
         opacity: 0.8;
         flex-shrink: 0;
-        transition: opacity 0.3s ease;
+        filter: brightness(0) invert(1);
+        transition:
+          opacity 0.3s ease,
+          filter 0.3s ease;
       }
       .marquee-logo:hover {
         opacity: 1;
@@ -532,27 +535,130 @@
 
       /* Mobile menu */
       /* BEGIN LANG_SWITCHER_CSS */
-      .lang-switcher { position: relative; display: inline-flex; }
-      .lang-btn { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem .8rem; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.85); background: transparent; border: 1px solid rgba(255,255,255,.18); border-radius: 2px; cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease; }
-      .lang-btn:hover { color: #fff; border-color: rgba(212,32,42,.7); background: rgba(212,32,42,.08); }
-      .lang-btn[aria-expanded="true"] { border-color: rgba(212,32,42,.7); background: rgba(212,32,42,.08); }
-      .lang-btn[aria-expanded="true"] .lang-chevron { transform: rotate(180deg); }
-      .lang-current { font-family: 'Space Grotesk', sans-serif; }
-      .lang-chevron { transition: transform .2s ease; }
-      .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 180px; background: #050505; border: 1px solid rgba(255,255,255,.1); z-index: 70; box-shadow: 0 10px 40px rgba(0,0,0,.6); padding: .25rem 0; }
-      .lang-menu.hidden { display: none; }
-      .lang-link { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .65rem 1rem; font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.7); text-decoration: none; transition: background .15s, color .15s; border-bottom: 1px solid rgba(255,255,255,.04); }
-      .lang-link:last-child { border-bottom: none; }
-      .lang-link:hover { background: rgba(212,32,42,.12); color: #fff; }
-      .lang-link-active { color: #d4202a; font-weight: 700; }
-      .lang-link .lang-abbr { font-family: 'Space Grotesk', sans-serif; letter-spacing: .12em; }
-      .lang-link .lang-full { font-size: .7rem; opacity: .65; font-weight: 400; }
-      .lang-mobile-row { display: flex; flex-wrap: wrap; gap: .5rem; padding: 1rem 0 .5rem; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 1.5rem; }
-      .lang-mlink { flex: 0 0 auto; padding: .5rem .85rem; font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.12); text-decoration: none; transition: all .15s; letter-spacing: .05em; }
-      .lang-mlink:hover { color: #fff; border-color: rgba(212,32,42,.7); }
-      .lang-mlink-active { background: #d4202a; color: #fff; border-color: #d4202a; }
-      .lang-mlink .lang-abbr { font-family: 'Space Grotesk', sans-serif; font-weight: 700; margin-right: .35rem; }
-/* END LANG_SWITCHER_CSS */
+      .lang-switcher {
+        position: relative;
+        display: inline-flex;
+      }
+      .lang-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.55rem 0.8rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 2px;
+        cursor: pointer;
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+      .lang-btn:hover {
+        color: #fff;
+        border-color: rgba(212, 32, 42, 0.7);
+        background: rgba(212, 32, 42, 0.08);
+      }
+      .lang-btn[aria-expanded="true"] {
+        border-color: rgba(212, 32, 42, 0.7);
+        background: rgba(212, 32, 42, 0.08);
+      }
+      .lang-btn[aria-expanded="true"] .lang-chevron {
+        transform: rotate(180deg);
+      }
+      .lang-current {
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .lang-chevron {
+        transition: transform 0.2s ease;
+      }
+      .lang-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 180px;
+        background: #050505;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 70;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        padding: 0.25rem 0;
+      }
+      .lang-menu.hidden {
+        display: none;
+      }
+      .lang-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.65rem 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition:
+          background 0.15s,
+          color 0.15s;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .lang-link:last-child {
+        border-bottom: none;
+      }
+      .lang-link:hover {
+        background: rgba(212, 32, 42, 0.12);
+        color: #fff;
+      }
+      .lang-link-active {
+        color: #d4202a;
+        font-weight: 700;
+      }
+      .lang-link .lang-abbr {
+        font-family: "Space Grotesk", sans-serif;
+        letter-spacing: 0.12em;
+      }
+      .lang-link .lang-full {
+        font-size: 0.7rem;
+        opacity: 0.65;
+        font-weight: 400;
+      }
+      .lang-mobile-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem 0 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 1.5rem;
+      }
+      .lang-mlink {
+        flex: 0 0 auto;
+        padding: 0.5rem 0.85rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        text-decoration: none;
+        transition: all 0.15s;
+        letter-spacing: 0.05em;
+      }
+      .lang-mlink:hover {
+        color: #fff;
+        border-color: rgba(212, 32, 42, 0.7);
+      }
+      .lang-mlink-active {
+        background: #d4202a;
+        color: #fff;
+        border-color: #d4202a;
+      }
+      .lang-mlink .lang-abbr {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        margin-right: 0.35rem;
+      }
+      /* END LANG_SWITCHER_CSS */
       .mobile-menu {
         transform: translateX(100%);
         transition: transform 0.3s ease;
@@ -901,24 +1007,69 @@
               </svg>
             </a>
             <!-- BEGIN LANG_SWITCHER -->
-<div class="lang-switcher" id="lang-switcher">
-      <button id="lang-btn" type="button" class="lang-btn" aria-label="Change language" aria-haspopup="true" aria-expanded="false">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3a9 9 0 100 18 9 9 0 000-18zM3.5 12h17M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/>
-        </svg>
-        <span class="lang-current">ES</span>
-        <svg class="w-3 h-3 lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-        </svg>
-      </button>
-      <div id="lang-menu" class="lang-menu hidden">
-        <a href="/" class="lang-link lang-link-active" aria-current="page" data-lang="es"><span class="lang-abbr">ES</span><span class="lang-full">Español</span></a>
-        <a href="/en/" class="lang-link" data-lang="en"><span class="lang-abbr">EN</span><span class="lang-full">English</span></a>
-        <a href="/fr/" class="lang-link" data-lang="fr"><span class="lang-abbr">FR</span><span class="lang-full">Français</span></a>
-        <a href="/it/" class="lang-link" data-lang="it"><span class="lang-abbr">IT</span><span class="lang-full">Italiano</span></a>
-      </div>
-    </div>
-<!-- END LANG_SWITCHER -->
+            <div class="lang-switcher" id="lang-switcher">
+              <button
+                id="lang-btn"
+                type="button"
+                class="lang-btn"
+                aria-label="Change language"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.6"
+                    d="M12 3a9 9 0 100 18 9 9 0 000-18zM3.5 12h17M12 3a14 14 0 010 18M12 3a14 14 0 000 18"
+                  />
+                </svg>
+                <span class="lang-current">ES</span>
+                <svg
+                  class="w-3 h-3 lang-chevron"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div id="lang-menu" class="lang-menu hidden">
+                <a
+                  href="/"
+                  class="lang-link lang-link-active"
+                  aria-current="page"
+                  data-lang="es"
+                  ><span class="lang-abbr">ES</span
+                  ><span class="lang-full">Español</span></a
+                >
+                <a href="/en/" class="lang-link" data-lang="en"
+                  ><span class="lang-abbr">EN</span
+                  ><span class="lang-full">English</span></a
+                >
+                <a href="/fr/" class="lang-link" data-lang="fr"
+                  ><span class="lang-abbr">FR</span
+                  ><span class="lang-full">Français</span></a
+                >
+                <a href="/it/" class="lang-link" data-lang="it"
+                  ><span class="lang-abbr">IT</span
+                  ><span class="lang-full">Italiano</span></a
+                >
+              </div>
+            </div>
+            <!-- END LANG_SWITCHER -->
             <button
               id="menu-btn"
               class="lg:hidden text-white p-2"
@@ -976,13 +1127,21 @@
         class="px-6 py-10 flex flex-col gap-2 text-2xl font-display font-semibold"
       >
         <!-- BEGIN LANG_SWITCHER_MOBILE -->
-<div class="lang-mobile-row">
-      <a href="/" class="lang-mlink lang-mlink-active" data-lang="es"><span class="lang-abbr">ES</span> Español</a>
-      <a href="/en/" class="lang-mlink" data-lang="en"><span class="lang-abbr">EN</span> English</a>
-      <a href="/fr/" class="lang-mlink" data-lang="fr"><span class="lang-abbr">FR</span> Français</a>
-      <a href="/it/" class="lang-mlink" data-lang="it"><span class="lang-abbr">IT</span> Italiano</a>
-    </div>
-<!-- END LANG_SWITCHER_MOBILE -->
+        <div class="lang-mobile-row">
+          <a href="/" class="lang-mlink lang-mlink-active" data-lang="es"
+            ><span class="lang-abbr">ES</span> Español</a
+          >
+          <a href="/en/" class="lang-mlink" data-lang="en"
+            ><span class="lang-abbr">EN</span> English</a
+          >
+          <a href="/fr/" class="lang-mlink" data-lang="fr"
+            ><span class="lang-abbr">FR</span> Français</a
+          >
+          <a href="/it/" class="lang-mlink" data-lang="it"
+            ><span class="lang-abbr">IT</span> Italiano</a
+          >
+        </div>
+        <!-- END LANG_SWITCHER_MOBILE -->
         <a
           href="#nosotros"
           class="py-3 border-b border-white/5 hover:text-brand transition"
@@ -4196,51 +4355,70 @@
     <script>
       // Mobile menu
       // BEGIN LANG_INIT
-      (function() {
-        var STORAGE_KEY = 'innoven-lang';
-        var supported = ['es', 'en', 'fr', 'it'];
-        var path = window.location.pathname || '/';
-        var currentLang = 'es';
+      (function () {
+        var STORAGE_KEY = "innoven-lang";
+        var supported = ["es", "en", "fr", "it"];
+        var path = window.location.pathname || "/";
+        var currentLang = "es";
         for (var i = 0; i < supported.length; i++) {
           var c = supported[i];
-          if (c !== 'es' && (path.indexOf('/' + c + '/') === 0 || path === '/' + c)) {
-            currentLang = c; break;
+          if (
+            c !== "es" &&
+            (path.indexOf("/" + c + "/") === 0 || path === "/" + c)
+          ) {
+            currentLang = c;
+            break;
           }
         }
         var stored = null;
-        try { stored = localStorage.getItem(STORAGE_KEY); } catch(e) {}
+        try {
+          stored = localStorage.getItem(STORAGE_KEY);
+        } catch (e) {}
         if (!stored) {
-          var browserLang = (navigator.language || 'es').slice(0,2).toLowerCase();
-          if (supported.indexOf(browserLang) !== -1 && browserLang !== currentLang) {
-            try { localStorage.setItem(STORAGE_KEY, browserLang); } catch(e) {}
-            window.location.replace(browserLang === 'es' ? '/' : '/' + browserLang + '/');
+          var browserLang = (navigator.language || "es")
+            .slice(0, 2)
+            .toLowerCase();
+          if (
+            supported.indexOf(browserLang) !== -1 &&
+            browserLang !== currentLang
+          ) {
+            try {
+              localStorage.setItem(STORAGE_KEY, browserLang);
+            } catch (e) {}
+            window.location.replace(
+              browserLang === "es" ? "/" : "/" + browserLang + "/",
+            );
             return;
           }
-          try { localStorage.setItem(STORAGE_KEY, currentLang); } catch(e) {}
+          try {
+            localStorage.setItem(STORAGE_KEY, currentLang);
+          } catch (e) {}
         }
-        var btn = document.getElementById('lang-btn');
-        var menu = document.getElementById('lang-menu');
+        var btn = document.getElementById("lang-btn");
+        var menu = document.getElementById("lang-menu");
         if (btn && menu) {
-          btn.addEventListener('click', function(e) {
+          btn.addEventListener("click", function (e) {
             e.stopPropagation();
-            var isOpen = !menu.classList.contains('hidden');
-            menu.classList.toggle('hidden');
-            btn.setAttribute('aria-expanded', String(!isOpen));
+            var isOpen = !menu.classList.contains("hidden");
+            menu.classList.toggle("hidden");
+            btn.setAttribute("aria-expanded", String(!isOpen));
           });
-          document.addEventListener('click', function(e) {
+          document.addEventListener("click", function (e) {
             if (!menu.contains(e.target) && !btn.contains(e.target)) {
-              menu.classList.add('hidden');
-              btn.setAttribute('aria-expanded', 'false');
+              menu.classList.add("hidden");
+              btn.setAttribute("aria-expanded", "false");
             }
           });
         }
-        document.querySelectorAll('a[data-lang]').forEach(function(a) {
-          a.addEventListener('click', function() {
-            try { localStorage.setItem(STORAGE_KEY, a.dataset.lang); } catch(e) {}
+        document.querySelectorAll("a[data-lang]").forEach(function (a) {
+          a.addEventListener("click", function () {
+            try {
+              localStorage.setItem(STORAGE_KEY, a.dataset.lang);
+            } catch (e) {}
           });
         });
       })();
-// END LANG_INIT
+      // END LANG_INIT
       const menuBtn = document.getElementById("menu-btn");
       const menuClose = document.getElementById("menu-close");
       const mobileMenu = document.getElementById("mobile-menu");
