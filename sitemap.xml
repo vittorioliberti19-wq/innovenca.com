@@ -50,4 +50,34 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://innovenca.com/it/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/" />
   </url>
+  <url>
+    <loc>https://innovenca.com/blog/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://innovenca.com/blog/aislamiento-termico-industrial-guia.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://innovenca.com/blog/procura-industrial-que-es.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://innovenca.com/blog/mantenimiento-de-hornos-industriales.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://innovenca.com/blog/seguridad-en-trabajos-industriales-en-caliente.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
