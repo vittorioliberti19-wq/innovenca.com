@@ -173,3 +173,18 @@ test("doble submit mientras envía hace un solo fetch", async () => {
   await Promise.all([first, second]);
   assert.equal(page.calls.fetch.length, 1);
 });
+
+
+test("fallo de reset no cambia el comprobante de envío ni bloquea reintento", async () => {
+  const page = boot();
+  page.installCaptcha();
+  page.window.innovenCaptchaReady();
+  page.window.grecaptcha.reset = () => { throw Error("widget unavailable"); };
+  await page.submit();
+  assert.equal(page.calls.fetch.length, 1);
+  assert.match(page.status.textContent, /Solicitud enviada/);
+  assert.equal(page.submitButton.disabled, false);
+  assert.doesNotThrow(() => page.retry.fire("click"));
+  assert.equal(page.retry.classList.contains("hidden"), false);
+  assert.match(page.status.textContent, /No se pudo conectar/);
+});

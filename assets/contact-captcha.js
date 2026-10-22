@@ -39,6 +39,15 @@
     }
     show(messages[2], true);
   }
+  function resetCaptcha() {
+    try {
+      window.grecaptcha.reset(widgetId);
+      return true;
+    } catch {
+      unavailable();
+      return false;
+    }
+  }
   // Google's automatic mode initializes the first widget on this page as 0.
   // Configure callbacks before adding its API script.
   container.dataset.callback = "innovenCaptchaSolved";
@@ -67,8 +76,7 @@
   }
   retry.addEventListener("click", () => {
     if (widgetId !== undefined) {
-      window.grecaptcha.reset(widgetId);
-      show(messages[1]);
+      if (resetCaptcha()) show(messages[1]);
     } else {
       loadCaptcha();
     }
@@ -117,11 +125,11 @@
         form.reset();
         submissionId = crypto.randomUUID();
       }
-      window.grecaptcha.reset(widgetId);
+      resetCaptcha();
       show(messages[5]);
     } catch {
       // A failed/uncertain request must not erase the visitor's information.
-      window.grecaptcha.reset(widgetId);
+      resetCaptcha();
       show(deliveryMessages[1], true);
     } finally {
       clearTimeout(sendTimer);

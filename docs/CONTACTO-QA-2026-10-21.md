@@ -17,8 +17,15 @@
 - Producción: preflight autorizado 204, origen ajeno 403, POST vacío 400. Revalidado POST vacío al cerrar esta revisión.
 - Clave pública, tipo v2 checkbox y dominios coinciden con la configuración visible de reCAPTCHA de INNOVEN. Ninguna clave privada se documenta aquí.
 
-## Pendiente, no aprobado
+## Prueba real completada — 2026-10-21, 21:25–21:26 America/Caracas
 
-La prueba real de dos mensajes técnicos a Compras y Operaciones está autorizada, pero no se completó. Chrome dejó vacío el iframe de Google. El ejemplo mínimo oficial local primero dibujó la casilla y luego también falló al recargarlo. Quitar el backdrop-filter del formulario no resolvió por sí solo la falla. El cambio a inicialización automática tampoco acredita una solución completa en el navegador observado.
+Se aisló la interferencia de la sesión de depuración del navegador: el mismo sitio y clave dibujaron la casilla normalmente al desconectar esa sesión y recargar Chrome. La prueba continuó mediante la interfaz nativa, sin sustituir tokens ni desactivar la validación del servidor. Se completaron ambos desafíos visuales autorizados.
 
-No se enviaron los dos mensajes técnicos y no hay comprobantes de entrega de esos mensajes en Resend. No presentar este flujo como verificado de extremo a extremo hasta completar un CAPTCHA válido en producción y comprobar ambas entregas. Se dejó la pestaña de producción con el mensaje técnico de Compras preparado, sin datos comerciales reales.
+- Compras: servicio Sellado industrial, formulario confirmó solicitud enviada. Resend ID `01a16137-47a9-77db-bfbc-2a38320ea557`, destinatario `compras@innovenca.com`, estado **Delivered**.
+- Operaciones: servicio Aislamiento térmico, formulario confirmó solicitud enviada. Resend ID `01a16137-d9a3-7d29-bf30-0dd5ab0884f3`, destinatario `operaciones@innovenca.com`, estado **Delivered** a las 21:26.
+- Ambos: remitente `INNOVEN OS <notificaciones@innovenca.com>`; reply-to `direccion@innovenca.com`. Cuerpo expresamente identificado como prueba técnica sin solicitud comercial ni necesidad de respuesta.
+- Evidencia local: `/tmp/innoven-contacto-entregas-20261021.png`, `/tmp/innoven-compras-enviada-20261021.png`, `/tmp/innoven-operaciones-enviada-20261021.png`.
+
+La revisión anterior quedó pendiente porque el depurador impedía cargar el iframe; no era evidencia de falla para un visitante normal. No atribuir la resolución al retiro del backdrop-filter.
+
+Se añadió además una protección para que un fallo de `grecaptcha.reset` no convierta una entrega confirmada en error ni deje el botón bloqueado. Frontend: **9/9** pruebas aprobadas; backend permanece en **8/8**. La protección conserva la validación CAPTCHA y no modifica los destinatarios.
