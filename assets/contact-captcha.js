@@ -39,30 +39,27 @@
     }
     show(messages[2], true);
   }
+  // Google's automatic mode initializes the first widget on this page as 0.
+  // Configure callbacks before adding its API script.
+  container.dataset.callback = "innovenCaptchaSolved";
+  container.dataset.expiredCallback = "innovenCaptchaExpired";
+  container.dataset.errorCallback = "innovenCaptchaError";
+  window.innovenCaptchaSolved = () => show("");
+  window.innovenCaptchaExpired = () => show(messages[3], true);
+  window.innovenCaptchaError = unavailable;
   window.innovenCaptchaReady = () => {
     clearTimeout(timer);
-    if (widgetId !== undefined) return;
-    widgetId = window.grecaptcha.render(container, {
-      sitekey: container.dataset.sitekey,
-      theme: container.dataset.theme || "dark",
-      size: container.parentElement.clientWidth < 304 ? "compact" : "normal",
-      callback: () => show(""),
-      "expired-callback": () => show(messages[3], true),
-      "error-callback": unavailable,
-    });
+    widgetId = 0;
     show(messages[1]);
   };
   function loadCaptcha() {
     if (requested) return;
     requested = true;
     show(messages[0]);
-    if (window.grecaptcha?.render) {
-      window.innovenCaptchaReady();
-      return;
-    }
+    container.dataset.size = container.parentElement.clientWidth < 304 ? "compact" : "normal";
     script = document.createElement("script");
     // Google's documented alternate endpoint for networks blocking google.com.
-    script.src = `https://www.recaptcha.net/recaptcha/api.js?onload=innovenCaptchaReady&render=explicit&hl=${language}`;
+    script.src = `https://www.recaptcha.net/recaptcha/api.js?onload=innovenCaptchaReady&hl=${language}`;
     script.async = true;
     script.onerror = unavailable;
     timer = setTimeout(unavailable, 20000);
@@ -85,7 +82,12 @@
     event.preventDefault();
     if (sending || !form.reportValidity()) return;
     loadCaptcha();
-    const response = widgetId === undefined ? "" : window.grecaptcha?.getResponse(widgetId);
+    let response = "";
+    try {
+      response = widgetId === undefined ? "" : window.grecaptcha?.getResponse(widgetId);
+    } catch {
+      // The automatic widget may still be initializing after the API callback.
+    }
     if (!response) {
       if (!retry.classList.contains("hidden")) return;
       show(messages[1]);

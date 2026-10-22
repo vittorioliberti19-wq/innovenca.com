@@ -39,7 +39,7 @@ function boot({ width = 400, language = "es", valid = true, fetchMock } = {}) {
   });
   const nodes = { "lead-form": form, "captcha-error": status, "captcha-retry": retry };
   const document = { documentElement: { lang: language }, getElementById: (id) => nodes[id], createElement: () => new Element(), head: { appendChild: (script) => scripts.push(script) } };
-  const calls = { fetch: [], render: [], reset: [], response: "", random: 0 };
+  const calls = { fetch: [], reset: [], response: "", random: 0 };
   const fields = { nombre: "Ana & Co", empresa: "ACME", email: "ana@example.com", telefono: "+58 412 123", servicio: "sellado", mensaje: "Necesito cotización", website: "", "g-recaptcha-response": "secret-token" };
   const window = {};
   class FakeFormData { constructor() { return Object.entries(fields); } }
@@ -52,16 +52,16 @@ function boot({ width = 400, language = "es", valid = true, fetchMock } = {}) {
     setTimeout: (callback, ms) => { timers.push({ callback, ms, cleared: false }); return timers.length - 1; },
     clearTimeout: (id) => { if (timers[id]) timers[id].cleared = true; },
   });
-  function installCaptcha({ widgetId = 0, response = "captcha-token-1234567890" } = {}) {
+  function installCaptcha({ response = "captcha-token-1234567890", throws = false } = {}) {
     calls.response = response;
-    window.grecaptcha = { render: (container, options) => { calls.render.push({ container, options }); return widgetId; }, reset: (id) => calls.reset.push(id), getResponse: () => calls.response };
+    window.grecaptcha = { reset: (id) => calls.reset.push(id), getResponse: () => { if (throws) throw Error("widget initializing"); return calls.response; } };
   }
   async function submit() {
     let prevented = false;
     await form.fire("submit", { preventDefault: () => { prevented = true; } });
     assert.equal(prevented, true);
   }
-  return { calls, fields, form, installCaptcha, retry, scripts, status, submit, submitButton, timers, window };
+  return { calls, captcha, fields, form, installCaptcha, retry, scripts, status, submit, submitButton, timers, window };
 }
 
 test("no carga CAPTCHA hasta foco y usa recaptcha.net una sola vez con idioma", () => {
@@ -70,20 +70,23 @@ test("no carga CAPTCHA hasta foco y usa recaptcha.net una sola vez con idioma", 
   page.form.fire("focusin");
   page.form.fire("pointerdown");
   assert.equal(page.scripts.length, 1);
-  assert.equal(page.scripts[0].src, "https://www.recaptcha.net/recaptcha/api.js?onload=innovenCaptchaReady&render=explicit&hl=fr");
+  assert.equal(page.scripts[0].src, "https://www.recaptcha.net/recaptcha/api.js?onload=innovenCaptchaReady&hl=fr");
 });
 
-test("widget 0 compacto y callbacks recuperan CAPTCHA", () => {
+test("modo automático configura widget compacto y callbacks globales", () => {
   const page = boot({ width: 303 });
   page.form.fire("focusin");
-  page.installCaptcha({ widgetId: 0 });
+  assert.equal(page.captcha.dataset.size, "compact");
+  assert.equal(page.captcha.dataset.callback, "innovenCaptchaSolved");
+  assert.equal(page.captcha.dataset.expiredCallback, "innovenCaptchaExpired");
+  assert.equal(page.captcha.dataset.errorCallback, "innovenCaptchaError");
+  page.installCaptcha();
   page.window.innovenCaptchaReady();
-  assert.equal(page.calls.render[0].options.size, "compact");
-  page.calls.render[0].options["expired-callback"]();
+  page.window.innovenCaptchaExpired();
   assert.equal(page.retry.classList.contains("hidden"), false);
   page.retry.fire("click");
   assert.deepEqual(page.calls.reset, [0]);
-  page.calls.render[0].options["error-callback"]();
+  page.window.innovenCaptchaError();
   assert.match(page.status.textContent, /No se pudo conectar/);
 });
 
@@ -106,15 +109,27 @@ test("campos inválidos o token ausente no hacen fetch", async () => {
   await invalid.submit();
   assert.equal(invalid.calls.fetch.length, 0);
   const missingToken = boot();
-  missingToken.installCaptcha({ widgetId: 0, response: "" });
+  missingToken.installCaptcha({ response: "" });
+  missingToken.window.innovenCaptchaReady();
   await missingToken.submit();
   assert.equal(missingToken.calls.fetch.length, 0);
   assert.match(missingToken.status.textContent, /Completa la verificación/);
 });
 
+test("widget automático transitorio no envía hasta que getResponse esté listo", async () => {
+  const page = boot();
+  page.installCaptcha({ throws: true });
+  await page.submit();
+  assert.equal(page.calls.fetch.length, 0);
+  page.window.innovenCaptchaReady();
+  await page.submit();
+  assert.equal(page.calls.fetch.length, 0);
+});
+
 test("éxito envía JSON, exige submissionId coincidente y limpia formulario", async () => {
   const page = boot();
-  page.installCaptcha({ widgetId: 0 });
+  page.installCaptcha();
+  page.window.innovenCaptchaReady();
   await page.submit();
   assert.equal(page.calls.fetch.length, 1);
   const call = page.calls.fetch[0];
@@ -133,7 +148,8 @@ test("éxito envía JSON, exige submissionId coincidente y limpia formulario", a
 
 test("fallo conserva valores, reinicia CAPTCHA y desbloquea formulario", async () => {
   const page = boot({ fetchMock: async () => ({ ok: true, json: async () => ({ ok: true, submissionId: "otro-id" }) }) });
-  page.installCaptcha({ widgetId: 0 });
+  page.installCaptcha();
+  page.window.innovenCaptchaReady();
   await page.submit();
   assert.equal(page.form.resetCalls || 0, 0);
   assert.equal(page.fields.nombre, "Ana & Co");
@@ -147,7 +163,8 @@ test("fallo conserva valores, reinicia CAPTCHA y desbloquea formulario", async (
 test("doble submit mientras envía hace un solo fetch", async () => {
   let release;
   const page = boot({ fetchMock: () => new Promise((resolve) => { release = resolve; }) });
-  page.installCaptcha({ widgetId: 0 });
+  page.installCaptcha();
+  page.window.innovenCaptchaReady();
   const first = page.submit();
   const second = page.submit();
   assert.equal(page.calls.fetch.length, 1);
