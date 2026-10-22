@@ -3,6 +3,11 @@
   const form = document.getElementById("lead-form");
   const container = form?.querySelector(".g-recaptcha");
   if (!form || !container) return;
+  const serviceSelect = form.elements.namedItem("servicio");
+  const requestedService = new URLSearchParams(window.location.search).get("servicio");
+  if (requestedService && Array.from(serviceSelect.options).some((option) => option.value === requestedService)) {
+    serviceSelect.value = requestedService;
+  }
   const language = document.documentElement.lang.slice(0, 2);
   const messages = {
     es: ["Cargando verificación…", "Completa la verificación para enviar tu solicitud.", "No se pudo conectar con la verificación. Reintenta sin perder tus datos.", "La verificación venció. Complétala de nuevo.", "Reintentar verificación", "Solicitud enviada. El equipo de INNOVEN dará seguimiento a tu requerimiento."],

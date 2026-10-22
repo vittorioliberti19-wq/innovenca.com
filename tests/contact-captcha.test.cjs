@@ -28,12 +28,14 @@ class Element {
   setAttribute(name, value) { this.attributes[name] = value; }
 }
 
-function boot({ width = 400, language = "es", valid = true, fetchMock } = {}) {
+function boot({ width = 400, language = "es", valid = true, fetchMock, search = "" } = {}) {
   const scripts = [], timers = [];
   const status = new Element(), retry = new Element(), submitButton = new Element({ disabled: false });
   const captcha = new Element({ dataset: { sitekey: "site-key", theme: "light" } });
   captcha.parentElement = new Element({ clientWidth: width });
+  const serviceSelect = { value: "", options: ["aislamiento", "climatizacion", "civil", "sellado", "procura", "electricidad", "otro"].map(value => ({ value })) };
   const form = new Element({
+    elements: { namedItem: () => serviceSelect },
     reportValidity: () => valid,
     querySelector: (selector) => selector === ".g-recaptcha" ? captcha : selector === 'button[type="submit"]' ? submitButton : null,
   });
@@ -41,12 +43,12 @@ function boot({ width = 400, language = "es", valid = true, fetchMock } = {}) {
   const document = { documentElement: { lang: language }, getElementById: (id) => nodes[id], createElement: () => new Element(), head: { appendChild: (script) => scripts.push(script) } };
   const calls = { fetch: [], reset: [], response: "", random: 0 };
   const fields = { nombre: "Ana & Co", empresa: "ACME", email: "ana@example.com", telefono: "+58 412 123", servicio: "sellado", mensaje: "Necesito cotización", website: "", "g-recaptcha-response": "secret-token" };
-  const window = {};
+  const window = { location: { search } };
   class FakeFormData { constructor() { return Object.entries(fields); } }
   class FakeAbortController { constructor() { this.signal = {}; } abort() { this.aborted = true; } }
   const fetch = fetchMock || (async (_url, init) => ({ ok: true, json: async () => ({ ok: true, submissionId: JSON.parse(init.body).submissionId }) }));
   vm.runInNewContext(source, {
-    window, document, FormData: FakeFormData, Object, AbortController: FakeAbortController,
+    window, document, URLSearchParams, FormData: FakeFormData, Object, AbortController: FakeAbortController,
     crypto: { randomUUID: () => `00000000-0000-4000-8000-${String(++calls.random).padStart(12, "0")}` },
     fetch: async (url, init) => { calls.fetch.push({ url, init }); return fetch(url, init); },
     setTimeout: (callback, ms) => { timers.push({ callback, ms, cleared: false }); return timers.length - 1; },
@@ -61,7 +63,7 @@ function boot({ width = 400, language = "es", valid = true, fetchMock } = {}) {
     await form.fire("submit", { preventDefault: () => { prevented = true; } });
     assert.equal(prevented, true);
   }
-  return { calls, captcha, fields, form, installCaptcha, retry, scripts, status, submit, submitButton, timers, window };
+  return { calls, captcha, fields, form, installCaptcha, retry, scripts, status, submit, submitButton, timers, window, serviceSelect };
 }
 
 test("no carga CAPTCHA hasta foco y usa recaptcha.net una sola vez con idioma", () => {
@@ -187,4 +189,13 @@ test("fallo de reset no cambia el comprobante de envío ni bloquea reintento", a
   assert.doesNotThrow(() => page.retry.fire("click"));
   assert.equal(page.retry.classList.contains("hidden"), false);
   assert.match(page.status.textContent, /No se pudo conectar/);
+});
+
+
+test("CTA de servicio preselecciona solo opciones admitidas sin iniciar CAPTCHA", () => {
+  const page = boot({ search: "?servicio=electricidad" });
+  assert.equal(page.serviceSelect.value, "electricidad");
+  assert.equal(page.scripts.length, 0);
+  const unknown = boot({ search: "?servicio=destinatario-externo" });
+  assert.equal(unknown.serviceSelect.value, "");
 });

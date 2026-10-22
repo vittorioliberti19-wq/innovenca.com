@@ -238,18 +238,13 @@
     </script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="../assets/fonts.css" />
 
     <!-- Tailwind (compiled, local) -->
     <link rel="stylesheet" href="../dist/tailwind.css" />
 
     <!-- Google reCAPTCHA v2 -->
-    <script defer charset="utf-8" src="../assets/contact-captcha.js?v=20261021-4"></script>
+    <script defer charset="utf-8" src="../assets/contact-captcha.js?v=20261021-5"></script>
 
     <style>
       html {
@@ -1503,6 +1498,7 @@
           </p>
         </div>
 
+        <p class="mb-8"><a href="../servicios/" class="text-brand font-semibold hover:text-white transition">Tous les services (espagnol) →</a></p>
         <!-- Service 1: Aislamiento -->
         <article
           class="service-card group border border-white/10 bg-ink-900 mb-6"
@@ -1531,6 +1527,7 @@
                   <h3 class="font-display display-md text-white">
                     Ingénierie d'Isolation et Intégrité Thermiques
                   </h3>
+                  <p class="mt-4"><a href="../servicios/aislamiento-integridad-termica/" class="text-sm font-semibold text-brand hover:text-white transition">Détails du service (espagnol) →</a></p>
                 </div>
                 <div class="hidden lg:flex flex-col items-end gap-1 shrink-0">
                   <div
@@ -1602,6 +1599,7 @@
                   <h3 class="font-display display-md text-white">
                     Réfrigération et Climatisation Industrielles
                   </h3>
+                  <p class="mt-4"><a href="../servicios/refrigeracion-climatizacion-industrial/" class="text-sm font-semibold text-brand hover:text-white transition">Détails du service (espagnol) →</a></p>
                 </div>
                 <div class="hidden lg:flex flex-col items-end shrink-0">
                   <div
@@ -1684,6 +1682,7 @@
                 <h3 class="font-display display-md text-white">
                   Ingénierie Civile et Industrielle
                 </h3>
+                  <p class="mt-4"><a href="../servicios/ingenieria-civil-industrial/" class="text-sm font-semibold text-brand hover:text-white transition">Détails du service (espagnol) →</a></p>
               </div>
               <p class="text-zinc-400 leading-relaxed mb-8">
                 Projets intégrés d'ingénierie civile et industrielle avec
@@ -1754,6 +1753,7 @@
                 <h3 class="font-display display-md text-white">
                   Joints et Étanchéité Industriels
                 </h3>
+                  <p class="mt-4"><a href="../servicios/empacaduras-sellado-industrial/" class="text-sm font-semibold text-brand hover:text-white transition">Détails du service (espagnol) →</a></p>
               </div>
               <p class="text-zinc-400 leading-relaxed mb-8">
                 Fourniture de solutions d'étanchéité haute intégrité pour
@@ -1835,6 +1835,7 @@
                   <h3 class="font-display display-md text-white">
                     Électricité Industrielle
                   </h3>
+                  <p class="mt-4"><a href="../servicios/electricidad-industrial/" class="text-sm font-semibold text-brand hover:text-white transition">Détails du service (espagnol) →</a></p>
                 </div>
                 <div class="hidden lg:flex flex-col items-end gap-1 shrink-0">
                   <div
@@ -1966,6 +1967,7 @@
               >
                 Morgan Thermal Ceramics
               </div>
+              <p class="mt-4"><a href="../morgan-thermal-ceramics-venezuela/" class="text-brand font-semibold hover:text-white transition">Morgan Thermal Ceramics · Venezuela →</a></p>
               <div class="text-zinc-400 text-sm leading-relaxed">
                 Fibre céramique · Silicate de calcium · Laine minérale ·
                 Réfractaires · Systèmes de Protection Anti-Feu certifiés
@@ -3854,6 +3856,9 @@
                   <option data-area="compras" value="procura">
                     Approvisionnement de matériaux / équipements
                   </option>
+                  <option data-area="operaciones" value="electricidad">
+                    Électricité industrielle
+                  </option>
                   <option data-area="operaciones" value="otro">
                     Projet intégré / Autre
                   </option>
@@ -4145,25 +4150,26 @@
             </div>
             <ul class="space-y-3 text-sm text-zinc-400">
               <li>
-                <a href="#servicios" class="hover:text-brand transition"
+                <a href="../servicios/aislamiento-integridad-termica/" class="hover:text-brand transition"
                   >Isolation Thermique</a
                 >
               </li>
               <li>
-                <a href="#servicios" class="hover:text-brand transition"
+                <a href="../servicios/refrigeracion-climatizacion-industrial/" class="hover:text-brand transition"
                   >Réfrigération Industrielle</a
                 >
               </li>
               <li>
-                <a href="#servicios" class="hover:text-brand transition"
+                <a href="../servicios/ingenieria-civil-industrial/" class="hover:text-brand transition"
                   >Civil et Industriel</a
                 >
               </li>
               <li>
-                <a href="#servicios" class="hover:text-brand transition"
+                <a href="../servicios/empacaduras-sellado-industrial/" class="hover:text-brand transition"
                   >Joints</a
                 >
               </li>
+              <li><a href="../servicios/electricidad-industrial/" class="hover:text-brand transition">Électricité industrielle</a></li>
             </ul>
           </div>
 
@@ -4311,26 +4317,7 @@
       // BEGIN LANG_INIT
       (function() {
         var STORAGE_KEY = 'innoven-lang';
-        var supported = ['es', 'en', 'fr', 'it'];
-        var path = window.location.pathname || '/';
-        var currentLang = 'es';
-        for (var i = 0; i < supported.length; i++) {
-          var c = supported[i];
-          if (c !== 'es' && (path.indexOf('/' + c + '/') === 0 || path === '/' + c)) {
-            currentLang = c; break;
-          }
-        }
-        var stored = null;
-        try { stored = localStorage.getItem(STORAGE_KEY); } catch(e) {}
-        if (!stored) {
-          var browserLang = (navigator.language || 'es').slice(0,2).toLowerCase();
-          if (supported.indexOf(browserLang) !== -1 && browserLang !== currentLang) {
-            try { localStorage.setItem(STORAGE_KEY, browserLang); } catch(e) {}
-            window.location.replace(browserLang === 'es' ? '/' : '/' + browserLang + '/');
-            return;
-          }
-          try { localStorage.setItem(STORAGE_KEY, currentLang); } catch(e) {}
-        }
+        // Preserve the requested language URL; only explicit links switch it.
         var btn = document.getElementById('lang-btn');
         var menu = document.getElementById('lang-menu');
         if (btn && menu) {
