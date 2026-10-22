@@ -245,7 +245,7 @@
     <link rel="stylesheet" href="dist/tailwind.css" />
 
     <!-- Google reCAPTCHA v2 -->
-    <script defer src="assets/contact-captcha.js"></script>
+    <script defer charset="utf-8" src="assets/contact-captcha.js?v=20261021-2"></script>
 
     <style>
       html {
@@ -3950,65 +3950,65 @@
           <!-- Right: form -->
           <div class="lg:col-span-7">
             <form
-              id="lead-form"
-              novalidate
+              id="lead-form" aria-describedby="contact-help"
               class="border border-white/10 bg-ink-900/70 backdrop-blur-md p-8 md:p-10 lg:p-12"
             >
+              <input type="text" name="website" tabindex="-1" autocomplete="off" hidden aria-hidden="true" />
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label
+                  <label for="lead-nombre"
                     class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
                     >Nombre *</label
                   >
                   <input
                     type="text"
-                    name="nombre"
+                    id="lead-nombre" name="nombre" minlength="2" maxlength="120"
                     required
                     class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
                     placeholder="Tu nombre completo"
                   />
                 </div>
                 <div>
-                  <label
+                  <label for="lead-empresa"
                     class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
                     >Empresa</label
                   >
                   <input
                     type="text"
-                    name="empresa"
+                    id="lead-empresa" name="empresa" maxlength="160"
                     class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
                     placeholder="Nombre de tu empresa"
                   />
                 </div>
                 <div>
-                  <label
+                  <label for="lead-email"
                     class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
                     >Email *</label
                   >
                   <input
                     type="email"
-                    name="email"
+                    id="lead-email" name="email" maxlength="254"
                     required
                     class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
                     placeholder="tu@empresa.com"
                   />
                 </div>
                 <div>
-                  <label
+                  <label for="lead-telefono"
                     class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
                     >Teléfono</label
                   >
                   <input
                     type="tel"
-                    name="telefono"
+                    id="lead-telefono" name="telefono" minlength="3" maxlength="40"
                     class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition"
                     placeholder="+58 ..."
                   />
                 </div>
               </div>
               <div class="mt-6">
-                <label
-                  class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                <label for="lead-servicio"
+                    class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
                   >Servicio de interés *</label
                 >
                 <select
@@ -4018,33 +4018,33 @@
                   class="w-full bg-black border border-white/10 px-4 py-3 text-white focus:border-brand focus:outline-none transition"
                 >
                   <option value="">Selecciona un servicio</option>
-                  <option data-area="operaciones">
+                  <option data-area="operaciones" value="aislamiento">
                     Aislamiento e Integridad Térmica
                   </option>
-                  <option data-area="operaciones">
+                  <option data-area="operaciones" value="climatizacion">
                     Refrigeración y Climatización Industrial
                   </option>
-                  <option data-area="operaciones">
+                  <option data-area="operaciones" value="civil">
                     Ingeniería Civil e Industrial
                   </option>
-                  <option data-area="compras">
+                  <option data-area="compras" value="sellado">
                     Empacaduras y Sellado Industrial
                   </option>
-                  <option data-area="compras">
+                  <option data-area="compras" value="procura">
                     Procura de materiales / equipos
                   </option>
-                  <option data-area="operaciones">
+                  <option data-area="operaciones" value="otro">
                     Proyecto integral / Otro
                   </option>
                 </select>
               </div>
               <div class="mt-6">
-                <label
-                  class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
+                <label for="lead-mensaje"
+                    class="block text-xs uppercase tracking-widest text-zinc-400 font-semibold mb-2"
                   >Detalle del proyecto *</label
                 >
                 <textarea
-                  name="mensaje"
+                  id="lead-mensaje" name="mensaje" minlength="10" maxlength="5000"
                   required
                   rows="5"
                   class="w-full bg-black border border-white/10 px-4 py-3 text-white placeholder-zinc-600 focus:border-brand focus:outline-none transition resize-none"
@@ -4057,13 +4057,12 @@
                   data-sitekey="6LdGR80sAAAAAIWqRl_x3ziBR9e4H6XulMOccvlX"
                   data-theme="dark"
                 ></div>
-                <p
-                  id="captcha-error"
-                  class="hidden mt-2 text-xs text-brand font-semibold"
-                >
-                  Por favor verifica que no eres un robot.
-                </p>
+                <p id="captcha-error" role="status" aria-live="polite"
+                  class="hidden mt-2 text-xs text-brand font-semibold"></p>
+                <button id="captcha-retry" type="button"
+                  class="hidden mt-2 text-xs text-white underline"></button>
               </div>
+              <p id="contact-help" class="mt-4 text-xs text-zinc-400">Tu solicitud se enviará directamente al departamento correspondiente de INNOVEN. No necesitas abrir una aplicación de correo.</p>
               <button
                 type="submit"
                 class="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand hover:bg-brand-dark text-white text-sm font-bold uppercase tracking-widest transition"
@@ -4816,34 +4815,6 @@
         });
       })();
 
-      // Lead form: route to operaciones@ for servicios, compras@ for procura
-      const leadForm = document.getElementById("lead-form");
-      const leadServicio = document.getElementById("lead-servicio");
-      const captchaError = document.getElementById("captcha-error");
-      leadForm?.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const captchaResponse = window.grecaptcha?.getResponse?.() || "";
-        if (!captchaResponse) {
-          captchaError?.classList.remove("hidden");
-          return;
-        }
-        captchaError?.classList.add("hidden");
-        const opt = leadServicio?.selectedOptions[0];
-        const area =
-          opt?.dataset.area === "compras" ? "compras" : "operaciones";
-        const servicio = opt?.value || opt?.text || "Solicitud";
-        const subject = encodeURIComponent(
-          `Solicitud web · ${servicio.trim()}`,
-        );
-        const fd = new FormData(leadForm);
-        const bodyLines = [];
-        for (const [k, v] of fd.entries()) {
-          if (k === "g-recaptcha-response") continue;
-          bodyLines.push(`${k}: ${v}`);
-        }
-        const body = encodeURIComponent(bodyLines.join("\n"));
-        window.location.href = `mailto:${area}@innovenca.com?subject=${subject}&body=${body}`;
-      });
     </script>
   </body>
 </html>
