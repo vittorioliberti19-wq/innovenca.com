@@ -1,0 +1,187 @@
+{
+  "fecha": "2026-10-21",
+  "sitio": "https://innovenca.com/",
+  "tareas": [
+    {
+      "id": "A1",
+      "estado": "bloqueado",
+      "evidencia": {
+        "implementado": true,
+        "pruebas": [
+          "Node VM: sin carga inicial, una sola carga por interacciones repetidas, render único, reintento tras error",
+          "Chromium local: 4 idiomas x 1366/390px, cero scripts recaptcha antes de interacción",
+          "Producción: cero scripts recaptcha iniciales; focus carga widget; envío sin CAPTCHA muestra validación"
+        ],
+        "limite": "Prueba con CAPTCHA válido pendiente: Google mostró Could not connect to the reCAPTCHA service. Reintento dejó widget vacío. No se resolvió ni se omitió CAPTCHA. El flujo existente abre mailto, no envía por backend."
+      },
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "A2",
+      "estado": "hecho",
+      "evidencia": "HTTP 200 cuatro homes; description/OG/Twitter 143/137/135/139 caracteres.",
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "A3",
+      "estado": "hecho",
+      "evidencia": "Blog title 51 caracteres, una mención de marca; descripción actualizada.",
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "A4",
+      "estado": "hecho",
+      "evidencia": "Cuatro artículos con enlace contextual ../#servicios.",
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "A5",
+      "estado": "hecho",
+      "evidencia": "Cinco páginas blog con hreflang es y x-default.",
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "A6",
+      "estado": "hecho",
+      "evidencia": "Privacidad noindex, follow y canonical; ausente sitemap.",
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "A7",
+      "estado": "hecho",
+      "evidencia": "Sin meta keywords en cuatro homes.",
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "QA-visual",
+      "estado": "hecho",
+      "evidencia": {
+        "archivo": "evidence/innoven-seo-layout-20261021.json",
+        "resultado": "8 comprobaciones, sin desbordamiento horizontal, consola sin errores observados",
+        "limite": "FR seleccionada mediante control de idioma y ruta /fr/; locale fr-FR no configurable con el navegador disponible."
+      },
+      "commit": "d76669cc8794492a0adde91a8f74cde5528fb0d5"
+    },
+    {
+      "id": "B1",
+      "estado": "hecho",
+      "evidencia": {
+        "url": "https://search.google.com/u/4/search-console?resource_id=sc-domain%3Ainnovenca.com",
+        "cuenta": "gerencia@1bite.studio",
+        "resultado": "Propiedad verificada; método Proveedor de nombres de dominio. TXT añadido sin modificar registros existentes.",
+        "dns": "Verificado por Cloudflare DNS over HTTPS: TXT nuevo y TXT previos presentes. dig local devolvía respuesta anterior en caché."
+      },
+      "commit": null
+    },
+    {
+      "id": "B2",
+      "estado": "hecho",
+      "evidencia": {
+        "sitemap": "https://innovenca.com/sitemap.xml",
+        "estado_sitemap": "Correcto",
+        "paginas_descubiertas": 10,
+        "solicitudes": "home, blog y cuatro artículos; confirmaciones guardadas en estado de inspección",
+        "nota": "El plan decía 11 URLs; el sitemap real contiene 10. No se inventó una URL adicional."
+      },
+      "commit": null
+    },
+    {
+      "id": "B3",
+      "estado": "hecho",
+      "evidencia": {
+        "url": "https://www.bing.com/webmasters/sitemaps?siteUrl=https://innovenca.com/",
+        "resultado": "Importado desde GSC y verificado; únicamente INNOVEN. Sitemap enviado, estado Processing; sin errores ni advertencias al verificar.",
+        "paginas_descubiertas": null
+      },
+      "commit": null
+    },
+    {
+      "id": "B4",
+      "estado": "hecho",
+      "evidencia": {
+        "key_location": "https://innovenca.com/fa66aa93d6f2a0463553084afbb8a49b.txt",
+        "key_publica_http": 200,
+        "endpoint": "https://api.indexnow.org/indexnow",
+        "respuesta_http": 202,
+        "urls_enviadas": 10,
+        "nota": "Aceptación no equivale a indexación."
+      },
+      "commit": "ce4afa27e7a6b7cf3eec0c180210030d3da1a4c6"
+    },
+    {
+      "id": "B5",
+      "estado": "bloqueado",
+      "evidencia": {
+        "url": "https://search.google.com/u/4/search-console/index?resource_id=sc-domain%3Ainnovenca.com",
+        "resultado": "Indexación y Rendimiento: Se están procesando los datos; vuelve a comprobar esta sección mañana.",
+        "indexadas": null,
+        "no_indexadas": null,
+        "consultas": null,
+        "inspeccion_individual": {
+          "home": "Indexada",
+          "blog_y_cuatro_articulos": "Descubierta: actualmente sin indexar antes de solicitar indexación."
+        },
+        "nota": "No se interpretan datos ausentes como cero."
+      },
+      "commit": null
+    },
+    {
+      "id": "B6",
+      "estado": "bloqueado",
+      "evidencia": {
+        "resultado": "No se pudo confirmar una ficha pública de INNOVEN C.A. en Maracaibo.",
+        "busqueda": "INNOVEN C.A. Maracaibo Google Maps",
+        "nota": "Los resultados oficiales de web/LinkedIn y enlaces genéricos a Maps no prueban existencia. No se creó ni editó ficha; confirmar URL con cliente."
+      },
+      "commit": null
+    },
+    {
+      "id": "C1",
+      "estado": "pendiente-aprobación",
+      "evidencia": {
+        "documento": "SEO-FASE2-PROPUESTAS.md",
+        "resultado": "Matriz de enlace propuesto a Liberty Constructions condicionada a relación/caso, URL y permiso; ningún enlace publicado."
+      },
+      "commit": null
+    },
+    {
+      "id": "D1",
+      "estado": "pendiente-aprobación",
+      "evidencia": {
+        "documento": "SEO-FASE2-PROPUESTAS.md",
+        "resultado": "Borradores de cinco servicios y Morgan; datos publicados separados de preguntas."
+      },
+      "commit": null
+    },
+    {
+      "id": "D2",
+      "estado": "pendiente-aprobación",
+      "evidencia": {
+        "documento": "SEO-FASE2-PROPUESTAS.md",
+        "resultado": "Calendario de ocho artículos; búsquedas objetivo sin volumen inventado."
+      },
+      "commit": null
+    },
+    {
+      "id": "D3",
+      "estado": "pendiente-aprobación",
+      "evidencia": {
+        "documento": "SEO-FASE2-PROPUESTAS.md",
+        "resultado": "Preguntas para INNOVEN, una por línea."
+      },
+      "commit": null
+    }
+  ],
+  "publicacion": {
+    "rama_remota": "main",
+    "A": "d76669cc8794492a0adde91a8f74cde5528fb0d5",
+    "B4": "ce4afa27e7a6b7cf3eec0c180210030d3da1a4c6",
+    "github_pages": "success",
+    "runs": [
+      "https://github.com/vittorioliberti19-wq/innovenca.com/actions/runs/39701250346",
+      "https://github.com/vittorioliberti19-wq/innovenca.com/actions/runs/39701322202"
+    ]
+  },
+  "verificacion_publica": "evidence/innoven-seo-live-20261021.json",
+  "preservacion": "Cambios previos de tablas móviles en repo canónico no tocados; implementación en worktree limpio desde origin/main."
+}

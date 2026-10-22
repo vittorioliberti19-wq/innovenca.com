@@ -1,0 +1,83 @@
+[
+  {
+    "url": "https://innovenca.com/",
+    "http": 200,
+    "description_lengths": {
+      "description": 143,
+      "og:description": 143,
+      "twitter:description": 143
+    }
+  },
+  {
+    "url": "https://innovenca.com/en/",
+    "http": 200,
+    "description_lengths": {
+      "description": 137,
+      "og:description": 137,
+      "twitter:description": 137
+    }
+  },
+  {
+    "url": "https://innovenca.com/fr/",
+    "http": 200,
+    "description_lengths": {
+      "description": 135,
+      "og:description": 135,
+      "twitter:description": 135
+    }
+  },
+  {
+    "url": "https://innovenca.com/it/",
+    "http": 200,
+    "description_lengths": {
+      "description": 139,
+      "og:description": 139,
+      "twitter:description": 139
+    }
+  },
+  {
+    "url": "https://innovenca.com/blog/",
+    "http": 200,
+    "hreflang": [
+      "es",
+      "x-default"
+    ],
+    "title_length": 51
+  },
+  {
+    "url": "https://innovenca.com/blog/aislamiento-termico-industrial-guia.html",
+    "http": 200,
+    "hreflang": [
+      "es",
+      "x-default"
+    ]
+  },
+  {
+    "url": "https://innovenca.com/blog/mantenimiento-de-hornos-industriales.html",
+    "http": 200,
+    "hreflang": [
+      "es",
+      "x-default"
+    ]
+  },
+  {
+    "url": "https://innovenca.com/blog/procura-industrial-que-es.html",
+    "http": 200,
+    "hreflang": [
+      "es",
+      "x-default"
+    ]
+  },
+  {
+    "url": "https://innovenca.com/blog/seguridad-en-trabajos-industriales-en-caliente.html",
+    "http": 200,
+    "hreflang": [
+      "es",
+      "x-default"
+    ]
+  },
+  {
+    "url": "https://innovenca.com/privacidad-medicion.html",
+    "http": 200
+  }
+]
