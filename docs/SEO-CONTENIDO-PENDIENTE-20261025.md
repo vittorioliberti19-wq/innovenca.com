@@ -29,3 +29,9 @@ No publicar aún. Solicitar autorización específica del cliente y validación 
 | Aislamiento térmico | U.S. Department of Energy: Steam Systems | Cálculo, condiciones de operación y evaluación de CUI |
 
 Las fuentes externas sirven como consulta técnica general; no se presentan como norma venezolana ni como aprobación para ejecutar en un sitio.
+
+## Datos confirmados por Dirección el 25-10-2026
+
+Prioridades: obras civiles, aislamiento térmico, refrigeración industrial y procura. Zulia es la zona principal; pueden atender obras en todo el país y disponen de patio en Ciudad Ojeda. No se confirmó dirección ni horario del patio.
+
+Revisor técnico designado: **Ing. Jaime Alarcón**. Su designación no prueba que haya revisado esta versión: queda pendiente validación y constancia de revisión antes de atribuirla públicamente. Dirección solicitará fotos y expedientes de obras; ningún caso se publica hasta contar con esos datos y autorización.

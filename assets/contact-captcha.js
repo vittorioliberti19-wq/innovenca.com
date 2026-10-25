@@ -126,6 +126,7 @@
       });
       const receipt = await result.json();
       if (!result.ok || receipt.ok !== true || receipt.submissionId !== payload.submissionId) throw new Error("Delivery not confirmed");
+      try { window.innovenAnalyticsLeadSent?.(payload.servicio); } catch { /* Measurement cannot change the delivery result. */ }
       if (submissionId === payload.submissionId) {
         form.reset();
         submissionId = crypto.randomUUID();
