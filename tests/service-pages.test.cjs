@@ -34,3 +34,15 @@ test('procura usa el valor de formulario existente y Morgan enlaza fuentes prima
   assert.match(morgan, /Fuentes del fabricante/);
   assert.match(morgan, /https:\/\/www\.morganthermalceramics\.com\/en-gb\/products-systems\//);
 });
+
+test('hub y servicios prioritarios reflejan cobertura confirmada', () => {
+  const hub = fs.readFileSync(path.join(root, 'servicios/index.html'), 'utf8');
+  const civil = fs.readFileSync(path.join(root, 'servicios/ingenieria-civil-industrial/index.html'), 'utf8');
+  const aislamiento = fs.readFileSync(path.join(root, 'servicios/aislamiento-integridad-termica/index.html'), 'utf8');
+  assert.match(hub, /Zulia es nuestra zona principal de operación/);
+  assert.match(hub, /patio en Ciudad Ojeda/);
+  assert.ok(hub.indexOf('ingenieria-civil-industrial/') < hub.indexOf('aislamiento-integridad-termica/'));
+  assert.ok(hub.indexOf('aislamiento-integridad-termica/') < hub.indexOf('refrigeracion-climatizacion-industrial/'));
+  assert.match(civil, /patio en Ciudad Ojeda/);
+  assert.match(aislamiento, /INNOVEN atiende requerimientos y obras en todo el país/);
+});
