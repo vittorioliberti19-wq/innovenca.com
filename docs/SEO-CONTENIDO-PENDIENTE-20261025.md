@@ -14,10 +14,10 @@ Asignar un ingeniero competente en la disciplina correspondiente para validar cu
 
 No publicar aún. Solicitar autorización específica del cliente y validación técnica para cada expediente, usando resultados verificables y sin divulgar contrato, precios, ubicación sensible, planos ni datos de terceros.
 
-1. Integridad térmica: condición inicial, alcance autorizado, criterio técnico, fotos aprobadas y resultado medible.
-2. Parada de horno o equipo térmico: alcance, materiales aprobados, control de calidad y resultado validado por cliente.
-3. Procura industrial crítica: requerimiento, controles de trazabilidad, hitos de entrega y resultado autorizado.
-4. Aislamiento térmico: levantamiento, criterio de diseño, intervención y medición comparativa aprobada.
+1. Obras civiles: necesidad, alcance, intervención, recursos, fotos antes/después y resultado autorizado.
+2. Aislamiento térmico: condición inicial, criterio técnico, materiales, fotos aprobadas y resultado medible.
+3. Refrigeración industrial: sistema, diagnóstico, intervención, controles y resultado validado.
+4. Procura industrial: requerimiento, controles de trazabilidad, hitos de entrega y resultado autorizado.
 
 ## Respaldo mínimo por artículo
 
