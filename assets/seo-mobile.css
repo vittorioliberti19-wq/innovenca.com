@@ -1,0 +1,12 @@
+/* Keep the desktop video-led identity; expose the commercial path on phones. */
+.hero-mobile-lead { display: none; }
+@media (max-width: 767px) {
+  #top { min-height: 0; padding-top: 112px; padding-bottom: 24px; gap: 32px; }
+  #top > .relative.flex-1 { display: none; }
+  #top .hero-overlay { background: linear-gradient(180deg, #000b, #0007 60%, #000d); }
+  .hero-mobile-lead { display: block; position: relative; padding: 0 24px; }
+  .hero-mobile-label { margin: 0 0 12px; color: #e4e4e7; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+  .hero-mobile-title { max-width: 22ch; margin: 0; color: #fff; font-family: "Space Grotesk", sans-serif; font-size: clamp(1.75rem, 7.5vw, 2.2rem); font-weight: 700; line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; }
+  .hero-mobile-cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; margin-top: 22px; padding: 12px 20px; background: #d4202a; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
+  .hero-mobile-cta:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+}

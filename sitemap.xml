@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://innovenca.com/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/" />
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://innovenca.com/en/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/" />
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://innovenca.com/fr/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/" />
@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://innovenca.com/it/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/" />
@@ -58,25 +58,25 @@
   </url>
   <url>
     <loc>https://innovenca.com/blog/aislamiento-termico-industrial-guia.html</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://innovenca.com/blog/procura-industrial-que-es.html</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://innovenca.com/blog/mantenimiento-de-hornos-industriales.html</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://innovenca.com/blog/seguridad-en-trabajos-industriales-en-caliente.html</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -92,11 +92,31 @@
   </url>
   <url>
     <loc>https://innovenca.com/servicios/aislamiento-integridad-termica/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/servicios/aislamiento-integridad-termica/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/servicios/aislamiento-integridad-termica/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/servicios/aislamiento-integridad-termica/" />
+  </url>
+  <url>
+    <loc>https://innovenca.com/en/servicios/aislamiento-integridad-termica/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/servicios/aislamiento-integridad-termica/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/servicios/aislamiento-integridad-termica/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/servicios/aislamiento-integridad-termica/" />
   </url>
   <url>
     <loc>https://innovenca.com/servicios/refrigeracion-climatizacion-industrial/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/servicios/refrigeracion-climatizacion-industrial/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/servicios/refrigeracion-climatizacion-industrial/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/servicios/refrigeracion-climatizacion-industrial/" />
+  </url>
+  <url>
+    <loc>https://innovenca.com/en/servicios/refrigeracion-climatizacion-industrial/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/servicios/refrigeracion-climatizacion-industrial/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/servicios/refrigeracion-climatizacion-industrial/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/servicios/refrigeracion-climatizacion-industrial/" />
   </url>
   <url>
     <loc>https://innovenca.com/servicios/ingenieria-civil-industrial/</loc>
@@ -112,11 +132,31 @@
   </url>
   <url>
     <loc>https://innovenca.com/morgan-thermal-ceramics-venezuela/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/morgan-thermal-ceramics-venezuela/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/morgan-thermal-ceramics-venezuela/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/morgan-thermal-ceramics-venezuela/" />
+  </url>
+  <url>
+    <loc>https://innovenca.com/en/morgan-thermal-ceramics-venezuela/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/morgan-thermal-ceramics-venezuela/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/morgan-thermal-ceramics-venezuela/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/morgan-thermal-ceramics-venezuela/" />
   </url>
   <url>
     <loc>https://innovenca.com/servicios/procura-industrial/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/servicios/procura-industrial/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/servicios/procura-industrial/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/servicios/procura-industrial/" />
+  </url>
+  <url>
+    <loc>https://innovenca.com/en/servicios/procura-industrial/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovenca.com/servicios/procura-industrial/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovenca.com/en/servicios/procura-industrial/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://innovenca.com/servicios/procura-industrial/" />
   </url>
   <url>
     <loc>https://innovenca.com/empresa/</loc>
